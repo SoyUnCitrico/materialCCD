@@ -3,24 +3,28 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import GridItem from "../components/Grid/GridItem";
 import GridContainer from "../components/Grid/GridContainer";
+import Paper from "@material-ui/core/Paper";
 import NavPills from "../components/NavPills/NavPills";
 import Paginations from "../components/Pagination/Pagination.js";
-import Paper from "@material-ui/core/Paper";
-// import styles from "assets/jss/material-kit-react/views/componentsSections/pillsStyle.js";
-// import { makeStyles } from "@material-ui/core/styles";
-// const useStyles = makeStyles(styles);
 import Dashboard from "@material-ui/icons/Dashboard";
 import Schedule from "@material-ui/icons/Schedule";
 import List from "@material-ui/icons/List";
+import HeaderMenu from "../components/Header/HeaderMenu";
+// import Container from "@material-ui/core/Container";
+
+import styles from "../assets/jss/containers/GalleryPageStyle";
+import { makeStyles } from "@material-ui/core/styles";
+const useStyles = makeStyles(styles);
 
 const GalleryPage = () => {
-  //   const classes = useStyles();
+  const classes = useStyles();
   return (
     <>
-      <Header color="info" brand={"Galería"} />
+      <Header color="danger" brand={"Galería"} rightLinks={HeaderMenu} />
       <GridContainer>
-        <GridItem xs={12} justify="center">
+        <GridItem xs={12}>
           <Paginations
+            className={classes.main__pageNumber}
             pages={[
               { text: "PREV" },
               { text: 1 },
@@ -44,7 +48,7 @@ const GalleryPage = () => {
               color="primary"
               tabs={[
                 {
-                  tabButton: "Dashboard",
+                  tabButton: "Instrucciones",
                   tabIcon: Dashboard,
                   tabContent: (
                     <span>
@@ -73,7 +77,7 @@ const GalleryPage = () => {
                   ),
                 },
                 {
-                  tabButton: "Schedule",
+                  tabButton: "Información",
                   tabIcon: Schedule,
                   tabContent: (
                     <span>
@@ -92,7 +96,7 @@ const GalleryPage = () => {
                   ),
                 },
                 {
-                  tabButton: "Tasks",
+                  tabButton: "Código",
                   tabIcon: List,
                   tabContent: (
                     <span>

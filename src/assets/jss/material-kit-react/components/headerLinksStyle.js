@@ -100,12 +100,20 @@ const headerLinksStyle = (theme) => ({
     fontSize: "20px !important",
     marginRight: "4px",
   },
+  dropIcon: {
+    width: "14px",
+    height: "14px",
+    // alignSelf: "center",
+    marginRight: "4px",
+    paddingTop: "2px",
+  },
   dropdownLink: {
     "&,&:hover,&:focus": {
       color: "inherit",
       textDecoration: "none",
       display: "block",
       padding: "10px 20px",
+      alignSelf: "center",
     },
   },
   ...tooltip,
