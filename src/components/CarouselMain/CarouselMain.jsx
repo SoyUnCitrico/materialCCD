@@ -5,13 +5,13 @@ import CarouselCard from "../CarouselCard/CarouselCard";
 // @material-ui/core components
 // import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
-// import CodeIcon from "@material-ui/icons/Code";
+import CodeIcon from "@material-ui/icons/Code";
 // import GraphicEqIcon from "@material-ui/icons/GraphicEq";
 // import StorageIcon from "@material-ui/icons/Storage";
-// import PermMediaIcon from "@material-ui/icons/PermMedia";
+import PermMediaIcon from "@material-ui/icons/PermMedia";
 
-// import image1 from "../../assets/img/sections/gallery2.png";
-// import image2 from "../../assets/img/sections/intro2.png";
+import image1 from "../../assets/img/sections/gallery2.png";
+import image2 from "../../assets/img/sections/intro2.png";
 // import image3 from "../../assets/img/sections/audio2.png";
 // import image4 from "../../assets/img/sections/datos.png";
 // import styles from "../../assets/jss/material-kit-react/components/carouselMainStyle.js";
@@ -29,12 +29,11 @@ const CarouselMain = () => {
     slidesToScroll: 1,
     autoplay: false,
   };
+  const title1 = " Introducción al código"
   return (
     <>
       <Carousel {...settings}>
-        <CarouselCard></CarouselCard>
-        <CarouselCard></CarouselCard>
-        <CarouselCard></CarouselCard>
+        <CarouselCard imagen1 title1 CodeIcon></CarouselCard>
         <CarouselCard></CarouselCard>
         {/* <div className={classes.section}>
           <img src={image1} alt="First slide" className="slick-image" />

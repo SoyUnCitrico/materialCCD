@@ -4,5 +4,10 @@ const HomePageStyle = {
     alignSelf: "center",
     background: "red",
   },
+  carousel__container: {
+    background: "green",
+    justifyItems: "center",
+    height: "40rem",
+  },
 };
 export default HomePageStyle;
