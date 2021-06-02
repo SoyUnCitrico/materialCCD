@@ -3,25 +3,26 @@ import React from "react";
 import Carousel from "react-slick";
 import CarouselCard from "../CarouselCard/CarouselCard";
 // @material-ui/core components
-// import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
-import CodeIcon from "@material-ui/icons/Code";
+// import CodeIcon from "@material-ui/icons/Code";
 // import GraphicEqIcon from "@material-ui/icons/GraphicEq";
 // import StorageIcon from "@material-ui/icons/Storage";
-import PermMediaIcon from "@material-ui/icons/PermMedia";
+// import PermMediaIcon from "@material-ui/icons/PermMedia";
 
-import image1 from "../../assets/img/sections/gallery2.png";
-import image2 from "../../assets/img/sections/intro2.png";
+// const image1 = "../../assets/img/sections/gallery2.png";
+// const image2 = "../../assets/img/sections/intro2.png";
 // import image3 from "../../assets/img/sections/audio2.png";
 // import image4 from "../../assets/img/sections/datos.png";
-// import styles from "../../assets/jss/material-kit-react/components/carouselMainStyle.js";
+import styles from "../../assets/jss/components/carouselMainStyle";
 
-// const useStyles = makeStyles(styles);
+const useStyles = makeStyles(styles);
 
 const CarouselMain = () => {
-  // const classes = useStyles();
+  const classes = useStyles();
   const settings = {
-    centerMode: true,
+    centerMode: false,
+    centerPadding: "30px",
     dots: true,
     infinite: true,
     speed: 500,
@@ -29,49 +30,14 @@ const CarouselMain = () => {
     slidesToScroll: 1,
     autoplay: false,
   };
-  const title1 = " Introducción al código"
+  // const title1 = "no hay";
   return (
-    <>
-      <Carousel {...settings}>
-        <CarouselCard imagen1 title1 CodeIcon></CarouselCard>
-        <CarouselCard></CarouselCard>
-        {/* <div className={classes.section}>
-          <img src={image1} alt="First slide" className="slick-image" />
-          <div className="slick-caption">
-            <h4>
-              <PermMediaIcon className="slick-icons" /> Galería
-            </h4>
-          </div>
-        </div>
-        <div className={classes.section}>
-          <img src={image2} alt="Second slide" className="slick-image" />
-          <div className="slick-caption">
-            <h4>
-              <CodeIcon className="slick-icons" />
-              Introducción al código creativo
-            </h4>
-          </div>
-        </div>
-        <div className={classes.section}>
-          <img src={image3} alt="Third slide" className="slick-image" />
-          <div className="slick-caption">
-            <h4>
-              <GraphicEqIcon className="slick-icons" />
-              Audio y web
-            </h4>
-          </div>
-        </div>
-        <div className={classes.section}>
-          <img src={image4} alt="Third slide" className="slick-image" />
-          <div className="slick-caption">
-            <h4>
-              <StorageIcon className="slick-icons" />
-              Código y datos
-            </h4>
-          </div>
-        </div> */}
-      </Carousel>
-    </>
+    <Carousel {...settings} className={classes.carousel_container}>
+      <CarouselCard></CarouselCard>
+      <CarouselCard></CarouselCard>
+      <CarouselCard></CarouselCard>
+      <CarouselCard></CarouselCard>
+    </Carousel>
   );
 };
 export default CarouselMain;

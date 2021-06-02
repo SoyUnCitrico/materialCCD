@@ -5,9 +5,9 @@ const HomePageStyle = {
     background: "red",
   },
   carousel__container: {
-    background: "green",
+    // background: "green",
     justifyItems: "center",
-    height: "40rem",
+    // height: "40rem",
   },
 };
 export default HomePageStyle;
