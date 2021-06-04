@@ -17,6 +17,7 @@ const CarouselCard = (props) => {
     icon,
     alt = "image_default",
     link,
+    colorText = "inherit",
     // otrapripedad = "",
   } = props;
   console.log(imagen);
@@ -25,7 +26,7 @@ const CarouselCard = (props) => {
     <Card className={classes.carouselCard}>
       <Link to={link}>
         <img src={imagen} alt={alt} className="slick-image" />
-        <div className="slick-caption">
+        <div className="slick-caption" style={{ color: `${colorText}` }}>
           <span>{icon}</span>
           <h3>{title}</h3>
           <p> {text} </p>
@@ -41,5 +42,6 @@ CarouselCard.propTypes = {
   icon: PropTypes.node,
   alt: PropTypes.string,
   link: PropTypes.string,
+  colorText: PropTypes.string,
 };
 export default CarouselCard;

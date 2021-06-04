@@ -45,6 +45,7 @@ const CarouselMain = () => {
         title={"Audio y web"}
         alt={"Imagen_02"}
         link={"/CCD1/1"}
+        colorText={"white"}
       ></CarouselCard>
       <CarouselCard
         imagen={image4}
