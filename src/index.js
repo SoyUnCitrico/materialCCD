@@ -14,6 +14,7 @@ import HomePage from "containers/HomePage";
 import GalleryPage from "containers/GalleryPage";
 import TallerPage from "containers/TallerPage";
 import AboutPage from "containers/AboutPage";
+import NotFound from "containers/NotFound";
 
 var hist = createBrowserHistory();
 
@@ -23,11 +24,12 @@ ReactDOM.render(
       {/* <Route path="/landing-page" component={LandingPage} />
       <Route path="/profile-page" component={ProfilePage} />
       <Route path="/login-page" component={LoginPage} /> */}
-      <Route path="/about" component={AboutPage} />
-      <Route path="/gallery" component={GalleryPage} />
-      <Route path="/CCD1/1" component={TallerPage} />
-      <Route path="/home" component={HomePage} />
-      <Route path="/" component={HomePage} />
+      <Route exact path="/about" component={AboutPage} />
+      <Route exact path="/gallery" component={GalleryPage} />
+      <Route exact path="/CCD1/1" component={TallerPage} />
+      <Route exact path="/home" component={HomePage} />
+      <Route exact path="/" component={HomePage} />
+      <Route component={NotFound} />
     </Switch>
   </Router>,
   document.getElementById("root")
