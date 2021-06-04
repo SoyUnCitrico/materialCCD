@@ -1,4 +1,7 @@
-class Bolita {
+/*eslint-disable*/
+import "../libraries/p5.js";
+
+export default class Bolita {
     constructor(x,y,w,h, temp=25, n=0) {
         this.pos = createVector(x,y);
         this.number = n;

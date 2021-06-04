@@ -23,11 +23,14 @@ const GalleryPage = () => {
     <>
       <Header
         color="danger"
-        brand={"Galería"}
+        brand={"ccdtecno"}
         rightLinks={<HeaderGalleryLinks />}
       />
       <GridContainer>
-        <GridItem xs={12} className={classes.main_pageNumber}>
+        <GridItem lg={4} md={6} sm={12} className={classes.main_title}>
+          <h2>Galería</h2>
+        </GridItem>
+        <GridItem lg={8} md={6} sm={12} className={classes.main_pageNumber}>
           <Paginations
             pages={[
               { text: "PREVIO" },
@@ -40,6 +43,7 @@ const GalleryPage = () => {
               { text: "SIGUIENTE" },
             ]}
             color="danger"
+            className={classes.main_pageNumber_container}
           />
         </GridItem>
         <GridItem xs={12} lg={8}>
@@ -53,8 +57,8 @@ const GalleryPage = () => {
               color="danger"
               tabs={[
                 {
-                  tabButton: "Instrucciones",
-                  tabIcon: PetsIcon,
+                  tabButton: "Información",
+                  tabIcon: InfoIcon,
                   tabContent: (
                     <div className={classes.text_container}>
                       <p>
@@ -82,8 +86,8 @@ const GalleryPage = () => {
                   ),
                 },
                 {
-                  tabButton: "Información",
-                  tabIcon: InfoIcon,
+                  tabButton: "Instrucciones",
+                  tabIcon: PetsIcon,
                   tabContent: (
                     <div div className={classes.text_container}>
                       <p>

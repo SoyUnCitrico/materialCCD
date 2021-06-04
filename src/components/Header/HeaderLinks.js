@@ -4,6 +4,7 @@ import CodeIcon from "@material-ui/icons/Code";
 import GraphicEqIcon from "@material-ui/icons/GraphicEq";
 import StorageIcon from "@material-ui/icons/Storage";
 import PermMediaIcon from "@material-ui/icons/PermMedia";
+import BuildIcon from "@material-ui/icons/Build";
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
 
@@ -36,20 +37,20 @@ export default function HeaderLinks(props) {
             className: classes.navLink,
             color: "transparent",
           }}
-          buttonIcon={Apps}
+          buttonIcon={BuildIcon}
           dropdownList={[
-            <Link to="/CCD1/1" className={classes.dropdownLink}>
+            <a href="/CCD1/1" className={classes.dropdownLink}>
               <CodeIcon className={classes.dropIcon} />
               Básicos
-            </Link>,
-            <Link to="/CCD2/1" className={classes.dropdownLink}>
+            </a>,
+            <a href="/CCD2/1" className={classes.dropdownLink}>
               <GraphicEqIcon className={classes.dropIcon} />
               Audio
-            </Link>,
-            <Link to="/CCD3/1" className={classes.dropdownLink}>
+            </a>,
+            <a href="/CCD3/1" className={classes.dropdownLink}>
               <StorageIcon className={classes.dropIcon} />
               Datos
-            </Link>,
+            </a>,
           ]}
         />
       </ListItem>
@@ -65,24 +66,23 @@ export default function HeaderLinks(props) {
           </Button>
         </Link> */}
         <Button
+          href="/gallery"
           color="transparent"
-          target="_blank"
           className={classes.navLink}
-        >  
-          <Link to="/gallery" style={{ color: "inherit" }}>
-            <PermMediaIcon className={classes.icons} />
-              Galería
-          </Link>
+        > 
+          <PermMediaIcon className={classes.icons} />
+          Galería
           </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
-          href="/about"
           color="transparent"
           className={classes.navLink}
         >
-          <Group className={classes.icons} />
-          Nosotros
+          <Link to="/about" style={{ color: "inherit" }}>
+            <Group className={classes.icons} />
+            Nosotros
+          </Link>
         </Button>
       </ListItem>
       {/* <ListItem className={classes.listItem}>

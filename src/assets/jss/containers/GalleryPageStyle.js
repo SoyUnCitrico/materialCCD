@@ -1,10 +1,23 @@
-const GalleryPageStyle = {
+const TallerPageStyle = {
   main_pageNumber: {
-    display: "grid",
+    // display: "grid",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: "0",
+    textAlign: "center",
+    paddingTop: "2rem",
+    paddingBottom: "0",
+  },
+  main_pageNumber_container: {
+    // textAlign: "center",
+  },
+  main_title: {
+    // display: "grid",
+    paddingLeft: "1.8rem",
     justifyContent: "center",
     alignItems: "center",
     margin: "0",
-    // background: "green",
+    // background: "cyan",
   },
   text_container: {
     // background: "blue",
@@ -20,4 +33,4 @@ const GalleryPageStyle = {
     margin: "1rem 0.75rem 0.5rem",
   },
 };
-export default GalleryPageStyle;
+export default TallerPageStyle;

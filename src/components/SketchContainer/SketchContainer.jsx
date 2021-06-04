@@ -1,21 +1,36 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import React, { Fragment, useState } from "react";
+import P5Wrapper from "react-p5-wrapper";
+import sketch from "../../scripts/convoc/tonalli";
+import sketch2 from "./sketch2";
+import Button from "../CustomButtons/Button";
 
-const SketchContainer = (props) => {
-  const { ligaUrl } = props;
-  const [loaded, setLoaded] = useState(false);
-  useEffect(() => {
-    const newScript = document.createElement("script");
-    newScript.src = ligaUrl;
-    newScript.addEventListener("load", () => setLoaded(true));
-    document.body.appendChild(newScript);
-  }, []);
-  useEffect(() => {
-    if (!loaded) return;
-  }, [loaded]);
-  return <>{loaded ? "Script loaded" : "Script NOT loaded"} </>;
-};
-SketchContainer.propTypes = {
-  ligaUrl: PropTypes.string,
+const SketchContainer = () => {
+  const [state, setState] = useState({ rotation: 160, sketch });
+
+  return (
+    <Fragment>
+      <P5Wrapper sketch={state.sketch} rotation={state.rotation} />
+      <input
+        type="range"
+        defaultValue={state.rotation}
+        min="0"
+        max="360"
+        step="1"
+        onChange={(event) =>
+          setState({ ...state, rotation: event.target.value })
+        }
+      />
+      <Button
+        onClick={() =>
+          setState({
+            ...state,
+            sketch: state.sketch === sketch ? sketch2 : sketch,
+          })
+        }
+      >
+        Change Sketch
+      </Button>
+    </Fragment>
+  );
 };
 export default SketchContainer;

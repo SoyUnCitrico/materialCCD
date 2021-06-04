@@ -1,10 +1,22 @@
 const TallerPageStyle = {
   main_pageNumber: {
-    display: "grid",
+    // display: "grid",
     justifyContent: "center",
     alignItems: "center",
     margin: "0",
-    // background: "green",
+    textAlign: "center",
+    top: "8px",
+  },
+  main_pageNumber_container: {
+    // textAlign: "center",
+  },
+  main_title: {
+    // display: "grid",
+    paddingLeft: "1.4rem",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: "0",
+    // background: "cyan",
   },
   text_container: {
     // background: "blue",

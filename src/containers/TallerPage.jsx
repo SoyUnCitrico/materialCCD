@@ -12,8 +12,8 @@ import PetsIcon from "@material-ui/icons/Pets";
 import InfoIcon from "@material-ui/icons/Info";
 import CodeIcon from "@material-ui/icons/Code";
 import HeaderGalleryLinks from "../components/Header/HeaderGalleryLinks";
+import styles from "../assets/jss/containers/GalleryPageStyle";
 
-import styles from "../assets/jss/containers/TallerPageStyle";
 import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(styles);
 
@@ -23,11 +23,14 @@ const TallerPage = () => {
     <>
       <Header
         color="warning"
-        brand={"Talleres"}
+        brand={"ccdtecno"}
         rightLinks={<HeaderGalleryLinks />}
       />
       <GridContainer>
-        <GridItem xs={12} className={classes.main_pageNumber}>
+        <GridItem lg={4} md={6} sm={12} className={classes.main_title}>
+          <h2>Talleres</h2>
+        </GridItem>
+        <GridItem lg={8} md={6} sm={12} className={classes.main_pageNumber}>
           <Paginations
             pages={[
               { text: "PREVIO" },
@@ -40,6 +43,7 @@ const TallerPage = () => {
               { text: "SIGUIENTE" },
             ]}
             color="warning"
+            className={classes.main_pageNumber_container}
           />
         </GridItem>
         <GridItem xs={12} lg={8}>

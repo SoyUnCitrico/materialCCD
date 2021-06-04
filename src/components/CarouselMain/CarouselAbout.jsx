@@ -5,10 +5,10 @@ import CarouselCard from "../CarouselCard/CarouselCard";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
-import image1 from "../../assets/img/sections/gallery2.png";
-import image2 from "../../assets/img/sections/intro2.png";
-import image3 from "../../assets/img/sections/audio2.png";
-import image4 from "../../assets/img/sections/datos.png";
+import image1 from "../../assets/img/comp/ausenciaTest_00.jpg";
+import image2 from "../../assets/img/comp/figmaNeon_00.JPG";
+import image3 from "../../assets/img/comp/mensajesSonoros_02.jpg";
+import image4 from "../../assets/img/comp/talleres_01.JPG";
 import styles from "../../assets/jss/components/CarouselAboutStyle";
 
 const useStyles = makeStyles(styles);

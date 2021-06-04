@@ -5,19 +5,13 @@ import Header from "components/Header/Header.js";
 import HeaderLinks from "components/Header/HeaderLinks";
 import Footer from "components/Footer/Footer.js";
 import GridItem from "components/Grid/GridItem.js";
-import Container from "@material-ui/core/Container";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-
-// Colores
-import Primary from "components/Typography/Primary.js";
-// import Info from "components/Typography/Info.js";
-import Success from "components/Typography/Success.js";
+// import Container from "@material-ui/core/Container";
 import Parallax from "../components/Parallax/Parallax";
-
-import styles from "../assets/jss/containers/HomePageStyle.js";
 import GridContainer from "components/Grid/GridContainer";
 
+// @material-ui/core components
+import { makeStyles } from "@material-ui/core/styles";
+import styles from "../assets/jss/containers/HomePageStyle.js";
 const useStyles = makeStyles(styles);
 
 const HomePage = () => {
@@ -26,14 +20,13 @@ const HomePage = () => {
     <>
       <Header color="primary" brand={"ccdtecno"} rightLinks={<HeaderLinks />} />
       <Parallax image={parallaxImage}>
-        <Container>
-          <Success>
-            <h3>¡Bienvenido! </h3>
-          </Success>
-          <Primary>
+        <GridContainer lg={12} className={classes.hero}>
+          <GridItem lg={5} className={classes.hero_text}>
+            <h3>¡Bienvenido!</h3>
+            <p>estás en el</p>
             <h2>Laboratorio de Tecnologías Compartidas</h2>
-          </Primary>
-        </Container>
+          </GridItem>
+        </GridContainer>
       </Parallax>
       <GridContainer>
         <GridItem xs={12} className={classes.carousel__container}>

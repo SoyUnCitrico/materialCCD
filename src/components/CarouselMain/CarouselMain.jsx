@@ -29,6 +29,7 @@ const CarouselMain = () => {
     slidesToShow: 2,
     slidesToScroll: 1,
     autoplay: false,
+    adaptiveHeight: true,
   };
   // const title1 = "no hay";
   return (
@@ -37,21 +38,25 @@ const CarouselMain = () => {
         imagen={image2}
         title={"Introducción"}
         alt={"Imagen_01"}
+        link={"/CCD1/1"}
       ></CarouselCard>
       <CarouselCard
         imagen={image3}
         title={"Audio y web"}
         alt={"Imagen_02"}
+        link={"/CCD1/1"}
       ></CarouselCard>
       <CarouselCard
         imagen={image4}
         title={"Datos"}
         alt={"Imagen_03"}
+        link={"/CCD1/1"}
       ></CarouselCard>
       <CarouselCard
         imagen={image1}
         title={"Galería"}
         alt={"Imagen_04"}
+        link={"/gallery"}
       ></CarouselCard>
     </Carousel>
   );

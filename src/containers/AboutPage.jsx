@@ -1,6 +1,8 @@
 import React from "react";
 import Header from "../components/Header/Header";
-import HeaderAboutLinks from "../components/Header/HeaderAboutLinks";
+import HeaderAboutLinks from "../components/Header/HeaderLinks";
+// import HeaderAboutLinks from "../components/Header/HeaderAboutLinks";
+// import HeaderAboutLinks from "../components/Header/HeaderGalleryLinks";
 import Footer from "../components/Footer/Footer";
 import GridItem from "../components/Grid/GridItem";
 import GridContainer from "../components/Grid/GridContainer";
@@ -26,7 +28,7 @@ const AboutPage = () => {
   return (
     <>
       <Header
-        brand="Nosotros"
+        brand="ccdtecno"
         color="primary"
         rightLinks={<HeaderAboutLinks />}
       />
