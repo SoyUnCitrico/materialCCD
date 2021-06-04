@@ -1,4 +1,4 @@
-const AboutPageStyle = {
+const AboutPageStyle = (theme) => ({
   mainTitle: {
     display: "center",
     textAlign: "center",
@@ -12,9 +12,15 @@ const AboutPageStyle = {
   mainDescription: {
     display: "grid",
     justifyContent: "center",
-    // background: "yellow",
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: "1rem",
+    },
     "& h3": {
       marginBottom: "1.2rem",
+      padding: "0 1rem",
+    },
+    "& h4": {
+      // marginBottom: "1.2rem",
       padding: "0 1rem",
     },
     "& p": {
@@ -36,5 +42,8 @@ const AboutPageStyle = {
     marginLeft: "3px",
     marginRight: "3px",
   },
-};
+  main_Container: {
+    // opacity: "0.2",
+  },
+});
 export default AboutPageStyle;

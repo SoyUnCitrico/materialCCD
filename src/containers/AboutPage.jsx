@@ -30,17 +30,28 @@ const AboutPage = () => {
         color="primary"
         rightLinks={<HeaderAboutLinks />}
       />
-      <Paper>
-        <GridContainer className={classes.mainContainer}>
+      <Paper className={classes.main_Container}>
+        <GridContainer>
           <GridItem xs={12} className={classes.mainTitle}>
             <h2>Laboratorio de Tecnologías Compartidas</h2>
           </GridItem>
-          <GridItem xs={7} justify="stretch" className={classes.mainCarousel}>
+          <GridItem
+            sm={12}
+            lg={7}
+            justify="center"
+            className={classes.mainCarousel}
+          >
             <Carousel className={classes.carouselContainer}></Carousel>
           </GridItem>
-          <GridItem xs={5} justify="center" className={classes.mainDescription}>
+          <GridItem
+            sm={12}
+            lg={5}
+            justify="center"
+            className={classes.mainDescription}
+          >
             <Card className={classes.mainDescription_card}>
-              <h3>Un espacio del Centro de Cultura Digital</h3>
+              {/* <h3>FAQ</h3> */}
+              <h3>¿Qué es el laboratorio?</h3>
               <p>
                 Es un laboratorio para abrir cajas negras, pasar del consumo a
                 la producción de tecnologías: Tecnologías creativas, críticas,
@@ -51,6 +62,7 @@ const AboutPage = () => {
                 hardware, todo lo que se hace se comparte, incluyendo los
                 procesos, código, esquemas, bocetos y planos.
               </p>
+              {/* <h4>¿Qué hacemos?</h4> */}
               <p>
                 Realizamos asesorías, talleres, conferencias y conciertos,
                 acercando conceptos a la gente para desmitificar tecnología, y
@@ -58,7 +70,7 @@ const AboutPage = () => {
                 aplicarla dentro de su entorno.
               </p>
               <div className={classes.mainDescription_buttons}>
-                <h5>Síguenos en :</h5>
+                <h5>Ponte en contacto:</h5>
                 <div>
                   <Button
                     href="https://www.facebook.com/CentroCulturaDigital"

@@ -13,17 +13,17 @@ import InfoIcon from "@material-ui/icons/Info";
 import CodeIcon from "@material-ui/icons/Code";
 import HeaderGalleryLinks from "../components/Header/HeaderGalleryLinks";
 
-import styles from "../assets/jss/containers/GalleryPageStyle";
+import styles from "../assets/jss/containers/TallerPageStyle";
 import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(styles);
 
-const GalleryPage = () => {
+const TallerPage = () => {
   const classes = useStyles();
   return (
     <>
       <Header
-        color="danger"
-        brand={"Galería"}
+        color="warning"
+        brand={"Talleres"}
         rightLinks={<HeaderGalleryLinks />}
       />
       <GridContainer>
@@ -39,7 +39,7 @@ const GalleryPage = () => {
               { text: "..." },
               { text: "SIGUIENTE" },
             ]}
-            color="danger"
+            color="warning"
           />
         </GridItem>
         <GridItem xs={12} lg={8}>
@@ -50,7 +50,7 @@ const GalleryPage = () => {
         <GridItem xs={12} lg={4}>
           <Paper className={classes.navpills_container}>
             <NavPills
-              color="danger"
+              color="warning"
               tabs={[
                 {
                   tabButton: "Instrucciones",
@@ -138,4 +138,4 @@ const GalleryPage = () => {
     </>
   );
 };
-export default GalleryPage;
+export default TallerPage;

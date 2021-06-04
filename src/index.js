@@ -7,11 +7,12 @@ import "assets/scss/material-kit-react.scss?v=1.10.0";
 
 // pages for this product
 // import Components from "views/Components/Components.js";
-import LandingPage from "views/LandingPage/LandingPage.js";
-import ProfilePage from "views/ProfilePage/ProfilePage.js";
-import LoginPage from "views/LoginPage/LoginPage.js";
+// import LandingPage from "views/LandingPage/LandingPage.js";
+// import ProfilePage from "views/ProfilePage/ProfilePage.js";
+// import LoginPage from "views/LoginPage/LoginPage.js";
 import HomePage from "containers/HomePage";
 import GalleryPage from "containers/GalleryPage";
+import TallerPage from "containers/TallerPage";
 import AboutPage from "containers/AboutPage";
 
 var hist = createBrowserHistory();
@@ -19,11 +20,12 @@ var hist = createBrowserHistory();
 ReactDOM.render(
   <Router history={hist}>
     <Switch>
-      <Route path="/landing-page" component={LandingPage} />
+      {/* <Route path="/landing-page" component={LandingPage} />
       <Route path="/profile-page" component={ProfilePage} />
-      <Route path="/login-page" component={LoginPage} />
+      <Route path="/login-page" component={LoginPage} /> */}
       <Route path="/about" component={AboutPage} />
-      <Route path="/CCD1" component={GalleryPage} />
+      <Route path="/gallery" component={GalleryPage} />
+      <Route path="/CCD1/1" component={TallerPage} />
       <Route path="/home" component={HomePage} />
       <Route path="/" component={HomePage} />
     </Switch>

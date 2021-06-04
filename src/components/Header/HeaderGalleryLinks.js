@@ -11,9 +11,10 @@ import ListItem from "@material-ui/core/ListItem";
 // @material-ui/icons
 import MenuIcon from "@material-ui/icons/Menu";
 import ListIcon from "@material-ui/icons/List";
-// import HomeIcon from "@material-ui/icons/Home";
+import HomeIcon from "@material-ui/icons/Home";
 import GroupIcon from "@material-ui/icons/Group";
 import BuildIcon from "@material-ui/icons/Build";
+import PermMediaIcon from "@material-ui/icons/PermMedia";
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 // import Button from "components/CustomButtons/Button.js";
@@ -57,14 +58,14 @@ export default function HeaderGalleryLinks(props) {
           }}
           buttonIcon={MenuIcon}
           dropdownList={[
-            // <Link to="/" className={classes.dropdownLink}>
-            //   <HomeIcon className={classes.dropIcon} />
-            //   Home
-            // </Link>,
-            // <Link to="/CCD1/1" className={classes.dropdownLink}>
-            //   <PermMediaIcon className={classes.dropIcon} />
-            //   Galería
-            // </Link>,
+            <Link to="/" className={classes.dropdownLink}>
+              <HomeIcon className={classes.dropIcon} />
+              Home
+            </Link>,
+            <Link to="/gallery" className={classes.dropdownLink}>
+              <PermMediaIcon className={classes.dropIcon} />
+              Galería
+            </Link>,
             <Link to="/CCD1/1" className={classes.dropdownLink}>
               <BuildIcon className={classes.dropIcon} />
               Talleres
