@@ -3,11 +3,12 @@ const carouselMainStyle = {
     display: "grid",
     margin: "0px",
     // paddingLeft: "4rem",
-    justifyContent: "center",
+    // justifyContent: "center",
     alignItems: "center",
-    background: "green",
-    // height: "600px",
+    // background: "green",
+    // maxHeight: "500px",
     // width: "100%",
+    // overflow: "hidden",
   },
 };
 

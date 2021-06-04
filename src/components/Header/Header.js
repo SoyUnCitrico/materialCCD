@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // nodejs library to set properties for components
@@ -53,14 +54,28 @@ export default function Header(props) {
         .classList.remove(classes[changeColorOnScroll.color]);
     }
   };
-  const { color, rightLinks, leftLinks, brand, fixed, absolute } = props;
+  const {
+    color,
+    rightLinks,
+    leftLinks,
+    brand,
+    fixed,
+    absolute,
+    goTo = "/",
+  } = props;
   const appBarClasses = classNames({
     [classes.appBar]: true,
     [classes[color]]: color,
     [classes.absolute]: absolute,
     [classes.fixed]: fixed,
   });
-  const brandComponent = <Button className={classes.title}>{brand}</Button>;
+  const brandComponent = (
+    <Button className={classes.title}>
+      <Link to={goTo} style={{ color: "white" }}>
+        {brand}
+      </Link>
+    </Button>
+  );
   return (
     <AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>
@@ -126,6 +141,7 @@ Header.propTypes = {
   rightLinks: PropTypes.node,
   leftLinks: PropTypes.node,
   brand: PropTypes.string,
+  goTo: PropTypes.string,
   fixed: PropTypes.bool,
   absolute: PropTypes.bool,
   // this will cause the sidebar to change the color from

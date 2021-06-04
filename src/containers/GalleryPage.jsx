@@ -6,11 +6,12 @@ import GridContainer from "../components/Grid/GridContainer";
 import Paper from "@material-ui/core/Paper";
 import NavPills from "../components/NavPills/NavPills";
 import Paginations from "../components/Pagination/Pagination.js";
-import Dashboard from "@material-ui/icons/Dashboard";
-import Schedule from "@material-ui/icons/Schedule";
-import List from "@material-ui/icons/List";
-import HeaderMenu from "../components/Header/HeaderMenu";
-// import Container from "@material-ui/core/Container";
+import SketchContainer from "../components/SketchContainer/SketchContainer.jsx";
+
+import PetsIcon from "@material-ui/icons/Pets";
+import InfoIcon from "@material-ui/icons/Info";
+import CodeIcon from "@material-ui/icons/Code";
+import HeaderGalleryLinks from "../components/Header/HeaderGalleryLinks";
 
 import styles from "../assets/jss/containers/GalleryPageStyle";
 import { makeStyles } from "@material-ui/core/styles";
@@ -20,42 +21,46 @@ const GalleryPage = () => {
   const classes = useStyles();
   return (
     <>
-      <Header color="danger" brand={"Galería"} rightLinks={HeaderMenu} />
+      <Header
+        color="danger"
+        brand={"Galería"}
+        rightLinks={<HeaderGalleryLinks />}
+      />
       <GridContainer>
-        <GridItem xs={12}>
+        <GridItem xs={12} className={classes.main_pageNumber}>
           <Paginations
-            className={classes.main__pageNumber}
             pages={[
-              { text: "PREV" },
-              { text: 1 },
+              { text: "PREVIO" },
+              { active: true, text: 1 },
               { text: 2 },
-              { active: true, text: 3 },
+              { text: 3 },
               { text: 4 },
               { text: 5 },
-              { text: "NEXT" },
+              { text: "..." },
+              { text: "SIGUIENTE" },
             ]}
-            color="info"
+            color="danger"
           />
         </GridItem>
         <GridItem xs={8}>
-          <Paper>
-            <h3>Aqui va el sketch</h3>
+          <Paper className={classes.main_sketch}>
+            <SketchContainer className={classes.main_sketch_container} />
           </Paper>
         </GridItem>
         <GridItem xs={4}>
-          <Paper>
+          <Paper className={classes.navpills_container}>
             <NavPills
-              color="primary"
+              color="danger"
               tabs={[
                 {
                   tabButton: "Instrucciones",
-                  tabIcon: Dashboard,
+                  tabIcon: PetsIcon,
                   tabContent: (
-                    <span>
+                    <div className={classes.text_container}>
                       <p>
-                        Collaboratively administrate empowered markets via
-                        plug-and-play networks. Dynamically procrastinate B2C
-                        users after installed base benefits.
+                        Hola, bienvenidx a la galería de ccdtecno. Aquí todxs
+                        colaboramxs para generar contenido de interes para la
+                        comunidad.
                       </p>
                       <br />
                       <p>
@@ -73,14 +78,14 @@ const GalleryPage = () => {
                         Dynamically procrastinate B2C users after installed base
                         benefits.
                       </p>
-                    </span>
+                    </div>
                   ),
                 },
                 {
                   tabButton: "Información",
-                  tabIcon: Schedule,
+                  tabIcon: InfoIcon,
                   tabContent: (
-                    <span>
+                    <div div className={classes.text_container}>
                       <p>
                         Efficiently unleash cross-media information without
                         cross-media value. Quickly maximize timely deliverables
@@ -92,14 +97,14 @@ const GalleryPage = () => {
                         cross-media value. Quickly maximize timely deliverables
                         for real-time schemas.
                       </p>
-                    </span>
+                    </div>
                   ),
                 },
                 {
                   tabButton: "Código",
-                  tabIcon: List,
+                  tabIcon: CodeIcon,
                   tabContent: (
-                    <span>
+                    <div div className={classes.text_container}>
                       <p>
                         Collaboratively administrate empowered markets via
                         plug-and-play networks. Dynamically procrastinate B2C
@@ -121,7 +126,7 @@ const GalleryPage = () => {
                         Dynamically procrastinate B2C users after installed base
                         benefits.
                       </p>
-                    </span>
+                    </div>
                   ),
                 },
               ]}

@@ -38,7 +38,7 @@ export default function Footer(props) {
                 className={classes.block}
                 target="_blank"
               >
-                <GithubIcon />
+                <GithubIcon className={classes.icon}/>
                 Github
               </a>
             </ListItem>
@@ -48,7 +48,7 @@ export default function Footer(props) {
                 className={classes.block}
                 target="_blank"
               >
-                <InstagramIcon />
+                <InstagramIcon className={classes.icon}/>
                 Instagram
               </a>
             </ListItem>

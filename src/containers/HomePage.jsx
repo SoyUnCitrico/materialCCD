@@ -24,7 +24,7 @@ const HomePage = () => {
   const classes = useStyles();
   return (
     <>
-      <Header color="warning" brand={"ccdtecno"} rightLinks={<HeaderLinks />} />
+      <Header color="primary" brand={"ccdtecno"} rightLinks={<HeaderLinks />} />
       <Parallax image={parallaxImage}>
         <Container>
           <Success>

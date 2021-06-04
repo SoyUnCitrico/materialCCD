@@ -69,7 +69,7 @@ export default function HeaderLinks(props) {
           target="_blank"
           className={classes.navLink}
         >  
-          <Link to="/CCD1" style={{ color: "inherit" }}>
+          <Link to="/gallery" style={{ color: "inherit" }}>
             <PermMediaIcon className={classes.icons} />
               Galería
           </Link>

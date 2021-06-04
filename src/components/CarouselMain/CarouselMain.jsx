@@ -10,10 +10,10 @@ import { makeStyles } from "@material-ui/core/styles";
 // import StorageIcon from "@material-ui/icons/Storage";
 // import PermMediaIcon from "@material-ui/icons/PermMedia";
 
-// const image1 = "../../assets/img/sections/gallery2.png";
-// const image2 = "../../assets/img/sections/intro2.png";
-// import image3 from "../../assets/img/sections/audio2.png";
-// import image4 from "../../assets/img/sections/datos.png";
+import image1 from "../../assets/img/sections/gallery2.png";
+import image2 from "../../assets/img/sections/intro2.png";
+import image3 from "../../assets/img/sections/audio2.png";
+import image4 from "../../assets/img/sections/datos.png";
 import styles from "../../assets/jss/components/carouselMainStyle";
 
 const useStyles = makeStyles(styles);
@@ -21,22 +21,38 @@ const useStyles = makeStyles(styles);
 const CarouselMain = () => {
   const classes = useStyles();
   const settings = {
-    centerMode: false,
-    centerPadding: "30px",
+    centerMode: true,
+    // centerPadding: "30px",
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 2,
     slidesToScroll: 1,
     autoplay: false,
   };
   // const title1 = "no hay";
   return (
     <Carousel {...settings} className={classes.carousel_container}>
-      <CarouselCard></CarouselCard>
-      <CarouselCard></CarouselCard>
-      <CarouselCard></CarouselCard>
-      <CarouselCard></CarouselCard>
+      <CarouselCard
+        imagen={image2}
+        title={"Introducción"}
+        alt={"Imagen_01"}
+      ></CarouselCard>
+      <CarouselCard
+        imagen={image3}
+        title={"Audio y web"}
+        alt={"Imagen_02"}
+      ></CarouselCard>
+      <CarouselCard
+        imagen={image4}
+        title={"Datos"}
+        alt={"Imagen_03"}
+      ></CarouselCard>
+      <CarouselCard
+        imagen={image1}
+        title={"Galería"}
+        alt={"Imagen_04"}
+      ></CarouselCard>
     </Carousel>
   );
 };

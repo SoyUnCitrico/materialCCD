@@ -45,15 +45,22 @@ const footerStyle = {
     marginTop: "0",
   },
   inlineBlock: {
-    display: "inline-block",
+    display: "inline-grid",
     padding: "0px",
     width: "auto",
+    "& a": {
+      display: "flex",
+      margin: "2px",
+      padding: "0.25rem",
+    },
   },
   icon: {
     width: "18px",
     height: "18px",
     position: "relative",
+    // marginRigth: "8px",
     top: "3px",
+    left: "-2px",
   },
 };
 export default footerStyle;
