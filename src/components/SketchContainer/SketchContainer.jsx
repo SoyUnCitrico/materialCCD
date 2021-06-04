@@ -1,7 +1,8 @@
 import React, { Fragment, useState } from "react";
 import P5Wrapper from "react-p5-wrapper";
-import sketch from "./sketch.js";
-import sketch2 from "./sketch2.js";
+import sketch2 from "./scripts/sketch.js";
+import sketch from "./scripts/convoc/tonalli.js";
+//import sketch2 from "./scripts/sketch2.js";
 import Button from "../CustomButtons/Button";
 
 const SketchContainer = () => {

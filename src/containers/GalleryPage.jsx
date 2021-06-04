@@ -61,27 +61,30 @@ const GalleryPage = () => {
                   tabIcon: InfoIcon,
                   tabContent: (
                     <div className={classes.text_container}>
-                      <p>
-                        Hola, bienvenidx a la galería de ccdtecno. Aquí todxs
-                        colaboramxs para generar contenido de interes para la
-                        comunidad.
-                      </p>
+                      <em>Título:</em>
+                      <p>Glitch cassette</p>
                       <br />
-                      <p>
-                        Dramatically visualize customer directed convergence
-                        without revolutionary ROI. Collaboratively administrate
-                        empowered markets via plug-and-play networks.
-                        Dynamically procrastinate B2C users after installed base
-                        benefits.
-                      </p>
+                      <em>Autor:</em>
+                      <p>Luis Tonalli Olvera Torres</p>
                       <br />
-                      <p>
-                        Dramatically visualize customer directed convergence
-                        without revolutionary ROI. Collaboratively administrate
-                        empowered markets via plug-and-play networks.
-                        Dynamically procrastinate B2C users after installed base
-                        benefits.
-                      </p>
+                      <em>Contacto:</em>
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href="https://www.instagram.com/tonalli_o"
+                      >
+                        <p>Instagram</p>
+                      </a>
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href="https://spacehey.com/profile?id=98737"
+                      >
+                        <p>Spacehey</p>
+                      </a>
+                      <br />
+                      <em>Software:</em>
+                      <p>Animación en p5.js.</p>
                     </div>
                   ),
                 },
@@ -91,15 +94,9 @@ const GalleryPage = () => {
                   tabContent: (
                     <div div className={classes.text_container}>
                       <p>
-                        Efficiently unleash cross-media information without
-                        cross-media value. Quickly maximize timely deliverables
-                        for real-time schemas.
-                      </p>
-                      <br />
-                      <p>
-                        Efficiently unleash cross-media information without
-                        cross-media value. Quickly maximize timely deliverables
-                        for real-time schemas.
+                        Para que comience el audio se debe subir o bajar el
+                        volumen con el controlador que se encuentra debajo de la
+                        animación
                       </p>
                     </div>
                   ),
@@ -109,12 +106,10 @@ const GalleryPage = () => {
                   tabIcon: CodeIcon,
                   tabContent: (
                     <div div className={classes.text_container}>
-                      <p>
-                        Collaboratively administrate empowered markets via
-                        plug-and-play networks. Dynamically procrastinate B2C
-                        users after installed base benefits.
-                      </p>
-                      <br />
+                      <a href="https://editor.p5js.org/lutonalli/present/pQeYdrOEN">
+                        Link al código
+                      </a>
+                      {/* <br />
                       <p>
                         Dramatically visualize customer directed convergence
                         without revolutionary ROI. Collaboratively administrate
@@ -129,7 +124,7 @@ const GalleryPage = () => {
                         empowered markets via plug-and-play networks.
                         Dynamically procrastinate B2C users after installed base
                         benefits.
-                      </p>
+                      </p> */}
                     </div>
                   ),
                 },
