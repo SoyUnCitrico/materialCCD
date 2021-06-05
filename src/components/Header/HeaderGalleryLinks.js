@@ -41,10 +41,10 @@ export default function HeaderGalleryLinks(props) {
             <Link to="/CCD1/1" className={classes.dropdownLink}>
               Ejecricio 1
             </Link>,
-            <Link to="/CCD2/1" className={classes.dropdownLink}>
+            <Link to="/CCD1/1" className={classes.dropdownLink}>
               Ejecricio 2
             </Link>,
-            <Link to="/CCD3/1" className={classes.dropdownLink}>
+            <Link to="/CCD1/1" className={classes.dropdownLink}>
               Ejecricio 3
             </Link>,
           ]}
@@ -60,29 +60,30 @@ export default function HeaderGalleryLinks(props) {
           }}
           buttonIcon={BuildIcon}
           dropdownList={[
-            <a href="/CCD1/1" className={classes.dropdownLink}>
+            <Link href="/CCD1/1" className={classes.dropdownLink}>
               <CodeIcon className={classes.dropIcon} />
               Básicos
-            </a>,
-            <a href="/CCD2/1" className={classes.dropdownLink}>
+            </Link>,
+            <Link href="/CCD2/1" className={classes.dropdownLink}>
               <GraphicEqIcon className={classes.dropIcon} />
               Audio
-            </a>,
-            <a href="/CCD3/1" className={classes.dropdownLink}>
+            </Link>,
+            <Link href="/CCD3/1" className={classes.dropdownLink}>
               <StorageIcon className={classes.dropIcon} />
               Datos
-            </a>,
+            </Link>,
           ]}
         />
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
-          href="/gallery"
           color="transparent"
           className={classes.navLink}
         >
-          <PermMediaIcon className={classes.icons} />
-          Galería
+          <Link to={"/gallery"} style={{ color: "inherit" }}>
+            <PermMediaIcon className={classes.icons} />
+            Galería
+          </Link>
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>

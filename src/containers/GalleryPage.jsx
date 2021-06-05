@@ -83,8 +83,8 @@ const GalleryPage = () => {
                         <p>Spacehey</p>
                       </a>
                       <br />
-                      <em>Software:</em>
-                      <p>Animación en p5.js.</p>
+                      {/* <em>Software:</em>
+                      <p>Animación en p5.js.</p> */}
                     </div>
                   ),
                 },
@@ -107,6 +107,9 @@ const GalleryPage = () => {
                   tabContent: (
                     <div div className={classes.text_container}>
                       <a href="https://editor.p5js.org/lutonalli/present/pQeYdrOEN">
+                        Live
+                      </a>
+                      <a href="https://editor.p5js.org/lutonalli/sketches/pQeYdrOEN">
                         Link al código
                       </a>
                       {/* <br />
