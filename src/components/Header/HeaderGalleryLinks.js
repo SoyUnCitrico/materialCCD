@@ -60,15 +60,15 @@ export default function HeaderGalleryLinks(props) {
           }}
           buttonIcon={BuildIcon}
           dropdownList={[
-            <Link href="/CCD1/1" className={classes.dropdownLink}>
+            <Link to="/CCD1/1" className={classes.dropdownLink}>
               <CodeIcon className={classes.dropIcon} />
               Básicos
             </Link>,
-            <Link href="/CCD2/1" className={classes.dropdownLink}>
+            <Link to="/CCD2/1" className={classes.dropdownLink}>
               <GraphicEqIcon className={classes.dropIcon} />
               Audio
             </Link>,
-            <Link href="/CCD3/1" className={classes.dropdownLink}>
+            <Link to="/CCD3/1" className={classes.dropdownLink}>
               <StorageIcon className={classes.dropIcon} />
               Datos
             </Link>,
