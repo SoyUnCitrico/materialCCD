@@ -44,14 +44,14 @@ const CarouselMain = () => {
         imagen={image3}
         title={"Audio y web"}
         alt={"Imagen_02"}
-        link={"/CCD1/1"}
+        link={"/CCD2/1"}
         colorText={"white"}
       ></CarouselCard>
       <CarouselCard
         imagen={image4}
         title={"Datos"}
         alt={"Imagen_03"}
-        link={"/CCD1/1"}
+        link={"/CCD3/1"}
       ></CarouselCard>
       <CarouselCard
         imagen={image1}
