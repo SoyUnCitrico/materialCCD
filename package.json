@@ -3,7 +3,7 @@
   "version": "1.10.0",
   "description": "cctecno-GithubPage",
   "private": true,
-  "homepage": "https://soyuncitrico.github.io/materialCCD",
+  "homepage": "https://soyuncitrico.github.io/materialCCD/",
   "main": "src/index.js",
   "dependencies": {
     "@babel/core": "7.14.0",

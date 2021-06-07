@@ -13,6 +13,12 @@ import styles from "assets/jss/material-kit-react/components/paginationStyle.js"
 const useStyles = makeStyles(styles);
 
 export default function Pagination(props) {
+  // const history = useHistory();
+  // const routeChange = (index) =>{ 
+  //   let path = `newPath` + index; 
+  //   history.push(path);
+  //   console.log(path);
+  // }
   const classes = useStyles();
   const { pages, color } = props;
   return (
@@ -31,7 +37,11 @@ export default function Pagination(props) {
               </Button>
             ) : (
               <Button
-                onClick={() => alert("you've clicked " + prop.text)}
+                onClick={() => {
+                  alert("you've clicked " + prop.text);
+                  // routeChange((prop.text))
+                  console.log(key);
+                }}
                 className={paginationLink}
               >
                 {prop.text}
@@ -55,7 +65,7 @@ Pagination.propTypes = {
       disabled: PropTypes.bool,
       text: PropTypes.oneOfType([
         PropTypes.number,
-        PropTypes.oneOf(["PREV", "NEXT", "..."]),
+        PropTypes.oneOf(["PREV", "SIG", "..."]),
       ]).isRequired,
       onClick: PropTypes.func,
     })

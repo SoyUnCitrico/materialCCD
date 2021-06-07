@@ -1,3 +1,15 @@
+/*eslint-disable*/
+// import "../libraries/p5.sound";
+// import song from "../../assets/audio/nena.mp3";
+// const Sketch = (p5) => {
+  export default function sketch(p5) {
+    
+  }
+
+
+
+
+
 let nSpaces = 30
 let spaces = []
 let nWalkers = 1

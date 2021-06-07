@@ -13,7 +13,13 @@ const NotFound = () => {
   const classes = useStyles();
   return (
     <GridContainer xs={12} justify={"center"}>
-      <GridItem xs={4}>
+      <GridItem
+        xs={12}
+        md={6}
+        lg={4}
+        justify={"center"}
+        className={classes.notFound_container}
+      >
         <Card className={classes.notFound_card}>
           <h1>Error 404</h1>
           <h3>¡ Lo sentimos !</h3>

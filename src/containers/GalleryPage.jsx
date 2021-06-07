@@ -1,4 +1,5 @@
 import React from "react";
+// import React, { useState } from "react";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import GridItem from "../components/Grid/GridItem";
@@ -13,11 +14,15 @@ import InfoIcon from "@material-ui/icons/Info";
 import CodeIcon from "@material-ui/icons/Code";
 import HeaderGalleryLinks from "../components/Header/HeaderGalleryLinks";
 
+// import sketch2 from "../components/SketchContainer/scripts/sketch";
+import sketch from "../components/SketchContainer/scripts/convoc/tonalli.js";
+
 import styles from "../assets/jss/containers/GalleryPageStyle";
 import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(styles);
 
 const GalleryPage = () => {
+  // const [state, setState] = useState({ sketch });
   const classes = useStyles();
   return (
     <>
@@ -30,25 +35,42 @@ const GalleryPage = () => {
         <GridItem lg={4} md={6} sm={12} className={classes.main_title}>
           <h2>Galería</h2>
         </GridItem>
-        <GridItem lg={8} md={6} sm={12} className={classes.main_pageNumber}>
+        {/* <GridItem lg={8} md={6} sm={12} className={classes.main_pageNumber}>
           <Paginations
             pages={[
-              { text: "PREVIO" },
+              { text: "PREV" },
               { active: true, text: 1 },
               { text: 2 },
               { text: 3 },
               { text: 4 },
               { text: 5 },
               { text: "..." },
-              { text: "SIGUIENTE" },
+              { text: "SIG" },
             ]}
             color="danger"
             className={classes.main_pageNumber_container}
           />
-        </GridItem>
+        </GridItem> */}
         <GridItem xs={12} lg={8}>
           <Paper className={classes.main_sketch}>
-            <SketchContainer className={classes.main_sketch_container} />
+            <Paginations
+              pages={[
+                { text: "PREV" },
+                { active: true, text: 1 },
+                { text: 2 },
+                { text: 3 },
+                { text: 4 },
+                { text: 5 },
+                { text: "..." },
+                { text: "SIG" },
+              ]}
+              color="danger"
+              className={classes.main_pageNumber_container}
+            />
+            <SketchContainer
+              className={classes.main_sketch_container}
+              sketch={sketch}
+            />
           </Paper>
         </GridItem>
         <GridItem xs={12} lg={4}>
@@ -106,12 +128,26 @@ const GalleryPage = () => {
                   tabIcon: CodeIcon,
                   tabContent: (
                     <div div className={classes.text_container}>
-                      <a href="https://editor.p5js.org/lutonalli/present/pQeYdrOEN">
-                        Live
-                      </a>
-                      <a href="https://editor.p5js.org/lutonalli/sketches/pQeYdrOEN">
-                        Link al código
-                      </a>
+                      <ul>
+                        <li>
+                          <a
+                            href="https://editor.p5js.org/lutonalli/present/pQeYdrOEN"
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            Live
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="https://editor.p5js.org/lutonalli/sketches/pQeYdrOEN"
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            Link al código
+                          </a>
+                        </li>
+                      </ul>
                       {/* <br />
                       <p>
                         Dramatically visualize customer directed convergence

@@ -1,7 +1,9 @@
 /*eslint-disable*/
-// import "../libraries/p5.sound";
+import "../libraries/p5.sound";
 // import song from "../../assets/audio/nena.mp3";
-// const Sketch = (p5) => {
+
+// import React from "react";
+
 export default function sketch(p5) {
   let color1, color2, aumento, aumento1, r,b,g, m;
   let angulo = 0;
@@ -12,12 +14,14 @@ export default function sketch(p5) {
   let a, c,d;
 
   p5.preload = () => {
-    // song = p5.loadSound("../../assets/audio/nena.mp3",loaded);
+    song = p5.loadSound(url("../../assets/audio/nena.mp3"),loaded);
   }
 
   p5.setup = () => {
+    
     p5.createCanvas(800, 800);
     slider = p5.createSlider(0,1,0.5,0.01);
+    slider.style("display", "block")
     color1= p5.color(200,10,210)
     color2= p5.color(50,255,180)
     aumento = 1
@@ -100,19 +104,40 @@ function circulos() {
   
 
 function triangulos() {  
-  p5.noStroke();
-  p5.fill(r,g,b);
-  p5.triangle(0,0,400,200,0,400);
+  // p5.noStroke();
+  // p5.fill(r,g,b);
+  // p5.triangle(0,0,400,200,0,400);
   
-  p5.fill(r,g,b);
-  p5.triangle(800,0,400,200,800,400);
+  // p5.fill(r,g,b);
+  // p5.triangle(800,0,400,200,800,400);
   
-  p5.fill(r,g,b);
-  p5.triangle(200,60,400,200,600,600);
+  // p5.fill(r,g,b);
+  // p5.triangle(200,60,400,200,600,600);
   
-  p5.fill (r,g,b);
-  p5.triangle (300,0,400,200,500,0);
+  // p5.fill (r,g,b);
+  // p5.triangle (300,0,400,200,500,0);
   
+  // r+=aumento;
+  // if(r > 255 || r < 0)
+  //   aumento *=-1;
+  // g+=aumento;
+  // if(g > 255 || g < 0)
+  //   aumento *=-1;
+  // b+=aumento;
+  // if(b > 255 || b < 0)
+  //   aumento *=-1;
+    
+  // function triangulos () {
+  
+  p5.noStroke()  
+  p5.fill(r,g,b)
+  p5.triangle(0,0,400,200,0,400)
+  p5.fill(r,g,b)
+  p5.triangle(800,0,400,200,800,400)
+  p5.fill(r,g,b)
+  p5.triangle(200,600,400,200,600,600)
+  p5.fill (r,g,b)
+  p5.triangle (300,0,400,200,500,0)
   r+=aumento;
   if(r > 255 || r < 0)
     aumento *=-1;

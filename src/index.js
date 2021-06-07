@@ -27,7 +27,7 @@ ReactDOM.render(
       <Route exact path="/about" component={AboutPage} />
       <Route exact path="/gallery" component={GalleryPage} />
       <Route exact path="/CCD1/1" component={TallerPage} />
-      {/* <Route exact path="/home" component={HomePage} /> */}
+      <Route exact path="/materialCCD" component={HomePage} />
       <Route exact path="/" component={HomePage} />
       <Route component={NotFound} />
     </Switch>
