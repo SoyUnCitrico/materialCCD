@@ -9,10 +9,12 @@ import {
 
 const paginationStyle = {
   pagination: {
-    display: "inline-block",
+    display: "flex",
     paddingLeft: "0",
-    margin: "0 0 20px 0",
+    margin: "0",
+    marginTop: "0.75rem",
     borderRadius: "4px",
+    justifyContent: "center",
   },
   paginationItem: {
     display: "inline",

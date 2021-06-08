@@ -38,13 +38,13 @@ export default function HeaderGalleryLinks(props) {
           }}
           buttonIcon={ListIcon}
           dropdownList={[
-            <Link to="/CCD1/1" className={classes.dropdownLink}>
+            <Link to="/intro" className={classes.dropdownLink}>
               Ejecricio 1
             </Link>,
-            <Link to="/CCD1/1" className={classes.dropdownLink}>
+            <Link to="/intro/2" className={classes.dropdownLink}>
               Ejecricio 2
             </Link>,
-            <Link to="/CCD1/1" className={classes.dropdownLink}>
+            <Link to="/intro/3" className={classes.dropdownLink}>
               Ejecricio 3
             </Link>,
           ]}
@@ -60,15 +60,15 @@ export default function HeaderGalleryLinks(props) {
           }}
           buttonIcon={BuildIcon}
           dropdownList={[
-            <Link to="/CCD1/1" className={classes.dropdownLink}>
+            <Link to="/intro" className={classes.dropdownLink}>
               <CodeIcon className={classes.dropIcon} />
               Básicos
             </Link>,
-            <Link to="/CCD2/1" className={classes.dropdownLink}>
+            <Link to="/audio" className={classes.dropdownLink}>
               <GraphicEqIcon className={classes.dropIcon} />
               Audio
             </Link>,
-            <Link to="/CCD3/1" className={classes.dropdownLink}>
+            <Link to="/datos" className={classes.dropdownLink}>
               <StorageIcon className={classes.dropIcon} />
               Datos
             </Link>,

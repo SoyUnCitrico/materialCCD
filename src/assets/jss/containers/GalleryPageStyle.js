@@ -8,9 +8,11 @@ const TallerPageStyle = {
     paddingTop: "2rem",
     paddingBottom: "0",
   },
-  main_pageNumber_container: {
-    // textAlign: "center",
-  },
+  // main_pageNumber_container: {
+  //   display: "grid",
+  //   justifySelf: "center",
+  //   background: "red",
+  // },
   main_title: {
     // display: "grid",
     paddingLeft: "1.8rem",

@@ -27,10 +27,10 @@ const GalleryPage = () => {
         rightLinks={<HeaderGalleryLinks />}
       />
       <GridContainer>
-        <GridItem lg={4} md={6} sm={12} className={classes.main_title}>
+        <GridItem lg={12} md={12} sm={12} className={classes.main_title}>
           <h2>Galería</h2>
         </GridItem>
-        <GridItem lg={8} md={6} sm={12} className={classes.main_pageNumber}>
+        {/* <GridItem lg={8} md={6} sm={12} className={classes.main_pageNumber}>
           <Paginations
             pages={[
               { text: "PREVIO" },
@@ -45,8 +45,22 @@ const GalleryPage = () => {
             color="danger"
             className={classes.main_pageNumber_container}
           />
-        </GridItem>
+        </GridItem> */}
         <GridItem xs={12} lg={8}>
+          <Paginations
+            pages={[
+              { text: "PREVIO" },
+              { active: true, text: 1 },
+              { text: 2 },
+              { text: 3 },
+              { text: 4 },
+              { text: 5 },
+              { text: "..." },
+              { text: "SIGUIENTE" },
+            ]}
+            color="danger"
+            className={classes.main_pageNumber_container}
+          />
           <Paper className={classes.main_sketch}>
             <SketchContainer className={classes.main_sketch_container} />
           </Paper>
@@ -106,28 +120,26 @@ const GalleryPage = () => {
                   tabIcon: CodeIcon,
                   tabContent: (
                     <div div className={classes.text_container}>
-                      <a href="https://editor.p5js.org/lutonalli/present/pQeYdrOEN">
-                        Live
-                      </a>
-                      <a href="https://editor.p5js.org/lutonalli/sketches/pQeYdrOEN">
-                        Link al código
-                      </a>
-                      {/* <br />
-                      <p>
-                        Dramatically visualize customer directed convergence
-                        without revolutionary ROI. Collaboratively administrate
-                        empowered markets via plug-and-play networks.
-                        Dynamically procrastinate B2C users after installed base
-                        benefits.
-                      </p>
-                      <br />
-                      <p>
-                        Dramatically visualize customer directed convergence
-                        without revolutionary ROI. Collaboratively administrate
-                        empowered markets via plug-and-play networks.
-                        Dynamically procrastinate B2C users after installed base
-                        benefits.
-                      </p> */}
+                      <ul>
+                        <li>
+                          <a
+                            target="_blank"
+                            rel="noreferrer"
+                            href="https://editor.p5js.org/lutonalli/present/pQeYdrOEN"
+                          >
+                            Live
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            target="_blank"
+                            rel="noreferrer"
+                            href="https://editor.p5js.org/lutonalli/sketches/pQeYdrOEN"
+                          >
+                            Link al código
+                          </a>
+                        </li>
+                      </ul>
                     </div>
                   ),
                 },
