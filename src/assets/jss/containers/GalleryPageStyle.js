@@ -34,5 +34,11 @@ const TallerPageStyle = {
   main_sketch: {
     margin: "1rem 0.75rem 0.5rem",
   },
+  sketchStyle: {
+    display: "grid",
+    justifyContent: "center",
+    paddingTop: "16px",
+    textAlign: "center",
+  },
 };
 export default TallerPageStyle;

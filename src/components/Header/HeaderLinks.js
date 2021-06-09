@@ -39,15 +39,15 @@ export default function HeaderLinks(props) {
           }}
           buttonIcon={BuildIcon}
           dropdownList={[
-            <Link to="/CCD1/1" className={classes.dropdownLink}>
+            <Link to="/intro" className={classes.dropdownLink}>
               <CodeIcon className={classes.dropIcon} />
               Básicos
             </Link>,
-            <Link to="/CCD2/1" className={classes.dropdownLink}>
+            <Link to="/audio" className={classes.dropdownLink}>
               <GraphicEqIcon className={classes.dropIcon} />
               Audio
             </Link>,
-            <Link to="/CCD3/1" className={classes.dropdownLink}>
+            <Link to="/datos" className={classes.dropdownLink}>
               <StorageIcon className={classes.dropIcon} />
               Datos
             </Link>,
@@ -79,3 +79,25 @@ export default function HeaderLinks(props) {
     </List>
   );
 }
+//  "./scripts/convoc/tonalli.js";
+// "./scripts/CC1/script/CC_taller1_Basicos";
+// "./scripts/CC1/script/CC1_taller2.1_posicionYMovimiento";
+// "./scripts/CC1/script/CC1_taller2.2";
+// "./scripts/CC1/script/CC1_taller2.3_tiposDeMovimiento";
+// "./scripts/CC1/script/CC1_taller3_keyIF";
+// "./scripts/CC1/script/CC1_taller3_MouseElse";
+// "./scripts/CC1/script/CC1_taller4_while";
+// "./scripts/CC1/script/CC1_taller4_baseMovbolita";
+// "./scripts/CC1/script/CC1_taller4_MultipleMovbolita";
+// "./scripts/CC1/script/CC1_taller4_Movbolita_loopAnidado";
+// 
+// "./scripts/CC1/Ejemplos/CC1_ejemplo1_fondoFigura";
+// "./scripts/CC1/Ejemplos/CC1_ejemplo1_cuadradoCirculos";
+// "./scripts/CC1/Ejemplos/CC1_ejemplo1_tonosGris";
+// "./scripts/CC1/Ejemplos/CC1_ejemplo2_BolitaBasico ";
+// "./scripts/CC1/Ejemplos/CC1_ejemplo2_BolitaFronteraBasico";
+// "./scripts/CC1/Ejemplos/CC1_ejemplo2.5_Bolita_vectores";
+// "./scripts/CC1/Ejemplos/CC1_ejemplo2.5._Bolita_vectores_Muchos";
+// "./scripts/CC1/Ejemplos/CC1_ejemplo3_mousePaint";
+// "./scripts/CC1/Ejemplos/CC1_ejemplo3_Bolita_mouseInt";
+// "./scripts/CC1/Ejemplos/CC1_ejemplo4_Movbolita_loopAnidado_aros";

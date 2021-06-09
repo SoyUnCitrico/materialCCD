@@ -21,34 +21,16 @@ import StorageIcon from "@material-ui/icons/Storage";
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button.js";
 import styles from "assets/jss/components/HeaderGalleryStyle.js";
+import HeaderDropdownLinks from "./HeaderDropdownLinks";
 
 const useStyles = makeStyles(styles);
 
-export default function HeaderGalleryLinks(props) {
+export default function HeaderGalleryLinks() {
   const classes = useStyles();
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
-        <CustomDropdown
-          noLiPadding
-          buttonText="sketches"
-          buttonProps={{
-            className: classes.navLink,
-            color: "transparent",
-          }}
-          buttonIcon={ListIcon}
-          dropdownList={[
-            <Link to="/intro" className={classes.dropdownLink}>
-              Ejecricio 1
-            </Link>,
-            <Link to="/intro/2" className={classes.dropdownLink}>
-              Ejecricio 2
-            </Link>,
-            <Link to="/intro/3" className={classes.dropdownLink}>
-              Ejecricio 3
-            </Link>,
-          ]}
-        />
+        <HeaderDropdownLinks />
       </ListItem>
       <ListItem className={classes.listItem}>
         <CustomDropdown

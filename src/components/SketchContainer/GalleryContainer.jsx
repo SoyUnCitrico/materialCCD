@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import GridItem from "../Grid/GridItem";
@@ -40,22 +41,22 @@ import sketch from "./scripts/convoc/tonalli.js";
 // import sketch from "./scripts/CC1/Ejemplos/CC1_ejemplo4_Movbolita_loopAnidado_aros";
 
 const GalleryContainer = (props) => {
-  const { title } = props;
+  const { title, color } = props;
   const [state] = useState({ rotation: 160, sketch });
   const classes = useStyles();
-  const sketchStyle = {
-    display: "grid",
-    justifyContent: "center",
-    paddingTop: "16px",
-    textAlign: "center",
-  };
+
+  // useEffect(()=>{
+  //   fetch(API)
+  //     .then(response => response.json())
+  //     .then(data=>setSketch(data));
+  // }, []);
   return (
     <GridContainer>
       <GridItem lg={12} md={12} sm={12} className={classes.main_title}>
         <h2>{title}</h2>
       </GridItem>
       <GridItem xs={12} lg={8}>
-        <Paper style={sketchStyle}>
+        <Paper className={classes.sketchStyle}>
           <P5Wrapper sketch={state.sketch} rotation={state.rotation} />
         </Paper>
       </GridItem>
@@ -71,12 +72,12 @@ const GalleryContainer = (props) => {
             { text: "..." },
             { text: "SIGUIENTE" },
           ]}
-          color="danger"
+          color={color}
           className={classes.main_pageNumber_container}
         />
         <Paper className={classes.navpills_container}>
           <NavPills
-            color="danger"
+            color={color}
             tabs={[
               {
                 tabButton: "Información",
@@ -157,5 +158,6 @@ const GalleryContainer = (props) => {
 };
 GalleryContainer.propTypes = {
   title: PropTypes.string,
+  color: PropTypes.string,
 };
 export default GalleryContainer;
