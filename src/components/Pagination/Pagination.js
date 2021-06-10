@@ -1,4 +1,6 @@
-import React from "react";
+/*eslint-disable*/
+import React, { useEffect, useState } from "react";
+
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 // nodejs library that concatenates classes

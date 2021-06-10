@@ -6,6 +6,7 @@ import GridContainer from "../components/Grid/GridContainer";
 import Paper from "@material-ui/core/Paper";
 import NavPills from "../components/NavPills/NavPills";
 import Paginations from "../components/Pagination/Pagination.js";
+import PaginationCCD from "../components/Pagination/PaginationCCD.jsx";
 import SketchContainer from "../components/SketchContainer/SketchContainer.jsx";
 
 import PetsIcon from "@material-ui/icons/Pets";
@@ -61,6 +62,7 @@ const GalleryPage = () => {
             color="danger"
             className={classes.main_pageNumber_container}
           />
+          <PaginationCCD />
           <Paper className={classes.main_sketch}>
             <SketchContainer className={classes.main_sketch_container} />
           </Paper>

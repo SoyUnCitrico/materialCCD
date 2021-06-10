@@ -36,28 +36,30 @@ const CarouselMain = () => {
     <Carousel {...settings} className={classes.carousel_container}>
       <CarouselCard
         imagen={image2}
-        title={"Introducción"}
+        title={"Introducción al código"}
         alt={"Imagen_01"}
-        link={"/CCD1/1"}
+        link={"/intro"}
       ></CarouselCard>
       <CarouselCard
         imagen={image3}
         title={"Audio y web"}
         alt={"Imagen_02"}
-        link={"/CCD2/1"}
+        link={"/audio"}
         colorText={"white"}
       ></CarouselCard>
       <CarouselCard
         imagen={image4}
-        title={"Datos"}
+        title={"Código y datos"}
         alt={"Imagen_03"}
-        link={"/CCD3/1"}
+        link={"/datos"}
+        colorText={"white"}
       ></CarouselCard>
       <CarouselCard
         imagen={image1}
         title={"Galería"}
         alt={"Imagen_04"}
         link={"/gallery"}
+        colorText={"white"}
       ></CarouselCard>
     </Carousel>
   );

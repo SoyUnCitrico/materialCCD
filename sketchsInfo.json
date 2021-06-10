@@ -1,70 +1,72 @@
-{  
-  "intro": [
-    {
-      "id": 1,
-      "name": "basicos",
-      "url": "./components/SketchContainer/scripts/CC1/script/CC_taller1_Basicos.js",
-      "nav_title": "Comandos básicos",
-      "nav_autor": "ccdtecno",
-      "nav_contact_title": "Instagram",
-      "nav_contact_url": "https://www.instagram.com/ccdtecno",
-      "nav_instructions": "---",
-      "nav_code_url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC",
-      "nac_code_title": "Link al código"
-    },
-    {
-      "id": 2,
-      "name": "posymov",
-      "url": "./components/SketchContainer/scripts/CC1/script/CC1_taller2.1_posicionYMovimiento.js",
-      "nav_title": "Posicion y movimiento",
-      "nav_autor": "ccdtecno",
-      "nav_contact_title": "Instagram",
-      "nav_contact_url": "https://www.instagram.com/ccdtecno",
-      "nav_instructions": "---",
-      "nav_code_url": "https://editor.p5js.org/ccdtecno/sketches/PT80mXuTp",
-      "nac_code_title": "Link al código"
-    }
-  ],
-  "audio": [
-    {
-      "id": 1,
-      "name": "tvshow-2",
-      "url": "In the Dark",
-      "nav_title": "Scripted",
-      "nav_autor": "English",
-      "nav_contact_title": 2009,
-      "nav_contact_url": "16+",
-      "nav_instructions": 164,
-      "nav_code_url": "http://dummyimage.com/800x600.png/99118E/ffffff",
-      "nac_code_title": "Vestibulum ac est lacinia nisi venenatis tristique"
-    }
-  ],
-  "dataCode": [
-    {
-      "id": 1,
-      "name": "tvshow-2",
-      "url": "In the Dark",
-      "nav_title": "Scripted",
-      "nav_autor": "English",
-      "nav_contact_title": 2009,
-      "nav_contact_url": "16+",
-      "nav_instructions": 164,
-      "nav_code_url": "http://dummyimage.com/800x600.png/99118E/ffffff",
-      "nac_code_title": "Vestibulum ac est lacinia nisi venenatis tristique"
-    }  
-  ],
-  "gallery": [
-    {
-      "id": 1,
-      "name": "tvshow-2",
-      "url": "In the Dark",
-      "nav_title": "Scripted",
-      "nav_autor": "English",
-      "nav_contact_title": "Instagram",
-      "nav_contact_url": "",
-      "nav_instructions": "Para que comience el audio se debe subir o bajar el volumen con el controlador que se encuentra debajo de la animación",
-      "nav_code_url": [ "http://dummyimage.com/800x600.png/99118E/ffffff", "http://dummyimage.com/800x600.png/99118E/ffffff" ],
-      "nac_code_title": [ "Instagram", "Spacehey"]
-    }
-  ]
+{
+  "sketchsInfo": {  
+    "intro": [
+      {
+        "id": 1,
+        "name": "basicos",
+        "url": "./components/SketchContainer/scripts/CC1/script/CC_taller1_Basicos.js",
+        "nav_title": "Comandos básicos",
+        "nav_autor": "ccdtecno",
+        "nav_contact_title": "Instagram",
+        "nav_contact_url": "https://www.instagram.com/ccdtecno",
+        "nav_instructions": "---",
+        "nav_code_url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC",
+        "nav_code_title": "Link al código"
+      },
+      {
+        "id": 2,
+        "name": "posymov",
+        "url": "./components/SketchContainer/scripts/CC1/script/CC1_taller2.1_posicionYMovimiento.js",
+        "nav_title": "Posicion y movimiento",
+        "nav_autor": "ccdtecno",
+        "nav_contact_title": "Instagram",
+        "nav_contact_url": "https://www.instagram.com/ccdtecno",
+        "nav_instructions": "---",
+        "nav_code_url": "https://editor.p5js.org/ccdtecno/sketches/PT80mXuTp",
+        "nav_code_title": "Link al código"
+      }
+    ],
+    "audio": [
+      {
+        "id": 1,
+        "name": "tvshow-2",
+        "url": "In the Dark",
+        "nav_title": "Scripted",
+        "nav_autor": "English",
+        "nav_contact_title": 2009,
+        "nav_contact_url": "16+",
+        "nav_instructions": 164,
+        "nav_code_url": "http://dummyimage.com/800x600.png/99118E/ffffff",
+        "nav_code_title": "Vestibulum ac est lacinia nisi venenatis tristique"
+      }
+    ],
+    "dataCode": [
+      {
+        "id": 1,
+        "name": "tvshow-2",
+        "url": "In the Dark",
+        "nav_title": "Scripted",
+        "nav_autor": "English",
+        "nav_contact_title": 2009,
+        "nav_contact_url": "16+",
+        "nav_instructions": 164,
+        "nav_code_url": "http://dummyimage.com/800x600.png/99118E/ffffff",
+        "nav_code_title": "Vestibulum ac est lacinia nisi venenatis tristique"
+      }  
+    ],
+    "gallery": [
+      {
+        "id": 1,
+        "name": "tvshow-2",
+        "url": "In the Dark",
+        "nav_title": "Scripted",
+        "nav_autor": "English",
+        "nav_contact_title": "Instagram",
+        "nav_contact_url": "",
+        "nav_instructions": "Para que comience el audio se debe subir o bajar el volumen con el controlador que se encuentra debajo de la animación",
+        "nav_code_url": [ "http://dummyimage.com/800x600.png/99118E/ffffff", "http://dummyimage.com/800x600.png/99118E/ffffff" ],
+        "nav_code_title": [ "Instagram", "Spacehey"]
+      }
+    ]  
+  }    
 }

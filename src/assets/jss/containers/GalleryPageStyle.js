@@ -35,10 +35,20 @@ const TallerPageStyle = {
     margin: "1rem 0.75rem 0.5rem",
   },
   sketchStyle: {
-    display: "grid",
-    justifyContent: "center",
+    display: "inline-grid",
+    width: "97.5%",
     paddingTop: "16px",
     textAlign: "center",
   },
+  paper_container: {
+    // background: "blue",
+    display: "flex",
+    justifyContent: "center",
+  },
+  // control_container: {
+  //   background: "red",
+  //   // display: "grid",
+  //   // justifyItems: "center",
+  // },
 };
 export default TallerPageStyle;

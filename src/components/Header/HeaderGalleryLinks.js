@@ -29,9 +29,9 @@ export default function HeaderGalleryLinks() {
   const classes = useStyles();
   return (
     <List className={classes.list}>
-      <ListItem className={classes.listItem}>
+      {/* <ListItem className={classes.listItem}>
         <HeaderDropdownLinks />
-      </ListItem>
+      </ListItem> */}
       <ListItem className={classes.listItem}>
         <CustomDropdown
           noLiPadding

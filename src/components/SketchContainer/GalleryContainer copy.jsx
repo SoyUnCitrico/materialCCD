@@ -7,7 +7,7 @@ import GridContainer from "../Grid/GridContainer";
 import Paper from "@material-ui/core/Paper";
 import NavPills from "../NavPills/NavPills";
 import Paginations from "../Pagination/Pagination.js";
-// import PaginationCCD from "../Pagination/PaginationCCD.jsx";
+import PaginationCCD from "../Pagination/PaginationCCD.jsx";
 
 import PetsIcon from "@material-ui/icons/Pets";
 import InfoIcon from "@material-ui/icons/Info";
@@ -20,7 +20,7 @@ const useStyles = makeStyles(styles);
 import P5Wrapper from "react-p5-wrapper";
 import sketch from "./scripts/convoc/tonalli.js";
 
-import sketch2 from "./scripts/CC1/script/CC_taller1_Basicos";
+// import sketch from "./scripts/CC1/script/CC_taller1_Basicos";
 // import sketch from "./scripts/CC1/script/CC1_taller2.1_posicionYMovimiento";
 // import sketch from "./scripts/CC1/script/CC1_taller2.2";
 // import sketch from "./scripts/CC1/script/CC1_taller2.3_tiposDeMovimiento";
@@ -47,45 +47,37 @@ const API = "http://localhost:3000/sketchsInfo";
 
 const GalleryContainer = (props) => {
   const { title, color, type } = props;
-  const [page, setPage] = useState(1);
-  const [state, setState] = useState({ sketch });
-  const classes = useStyles();
   const actualState = readState(API);
-  const infoIntro = Array.from(actualState.intro);
   
-  function paginationArray() {
-    let pages = []
-    let newPage;
-    let arrow = {text: "PREV"};
-    pages.push(arrow);
-    for(let i = 0; i<infoIntro.length; i++) {
-      if(i+1 === page)
-        newPage = {active: true, text: (i+1), onClick: (() => {
-          console.log("colored");
-          setState({
-            sketch: state.sketch === sketch ? sketch2 : sketch
-          })
-        }) }
-      else
-        newPage = {text: (i+1), onClick: ((item) => {
-          console.log(page+1);
-          console.log(item.id);
-          console.log("notengo nada");
-          setState({
-            sketch: state.sketch === sketch ? sketch2 : sketch
-          })
-          // setPage(page = i+1);
-        }
-      )}
-      pages.push(newPage);
-    }
-    arrow = {text: "PREV"}
-    pages.push(arrow);
-    return pages;
-  }
+  // let paginationSize = actualState.intro.length;
+  console.log(actualState.intro.length);
+  // let paginationSize = ;
+  // let paginationActual = actualState.intro;
+  const changePage = (index) => {
+    // let location = useLocation();
+    // let history = useHistory();
+    // history.push(location.pathname+"/"+index);
+    // console.log(location.pathname+"/"+index);
+    // console.log(paginationSize);
+    // console.log(paginationActual);
+    console.log(info);
 
-  console.log(paginationArray());
+  }
+  // useEffect(()=> {
+  // }, [scripts]);
+  const [state] = useState({ sketch });
+  const [pagNav] = useState({pages: [
+    { text: "PREV"},
+    { active: true, text: 1 },
+    { text: 2, onClick: changePage},
+    { text: "..." },
+    { text: "SIG" },
+  ]}, []);
+  const classes = useStyles();
   
+  
+  // function nextPage(){}
+  // function prevPage(){}
   return (
     <GridContainer>
       <GridItem lg={12} md={12} sm={12} className={classes.main_title}>
@@ -98,20 +90,11 @@ const GalleryContainer = (props) => {
       </GridItem>
       <GridItem sm={12} lg={4} className={classes.control_container}> 
         <Paginations
-          pages={paginationArray()}
+          pages={pagNav.pages}
           color={color}
           className={classes.main_pageNumber_container}
         />
-        {/* <PaginationCCD
-          totalPages={infoIntro.length}
-          actualPage={page}
-          onChange={() =>
-            setState({
-              ...state,
-              sketch: state.sketch === sketch ? sketch2 : sketch
-            })
-          }
-        /> */}
+        <PaginationCCD />
         <Paper className={classes.navpills_container}>
           <NavPills
             color={color}

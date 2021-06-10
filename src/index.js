@@ -20,7 +20,7 @@ ReactDOM.render(
     <Switch>
       <Route exact path="/gallery">
         <GalleryLayout links={<HeaderGalleryLinks />} color={"danger"}>
-          <GalleryContainer title={"Galería"} color={"danger"} />
+          <GalleryContainer title={"Galería"} color={"danger"} type={4} />
         </GalleryLayout>
       </Route>
       <Route exact path="/intro">
@@ -28,17 +28,22 @@ ReactDOM.render(
           <GalleryContainer
             title={"Introducción al código creativo"}
             color={"warning"}
+            type={0}
           />
         </GalleryLayout>
       </Route>
       <Route exact path="/audio">
         <GalleryLayout links={<HeaderGalleryLinks />} color={"warning"}>
-          <GalleryContainer title={"Audio y web"} color={"warning"} />
+          <GalleryContainer title={"Audio y web"} color={"warning"} type={1} />
         </GalleryLayout>
       </Route>
       <Route exact path="/datos">
         <GalleryLayout links={<HeaderGalleryLinks />} color={"warning"}>
-          <GalleryContainer title={"Código y datos"} color={"warning"} />
+          <GalleryContainer
+            title={"Código y datos"}
+            color={"warning"}
+            type={2}
+          />
         </GalleryLayout>
       </Route>
       <Route exact path="/about" component={AboutPage} />
