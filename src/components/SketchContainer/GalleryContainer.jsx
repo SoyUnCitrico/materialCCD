@@ -18,12 +18,12 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(styles);
 
 import P5Wrapper from "react-p5-wrapper";
-import sketch from "./scripts/convoc/tonalli.js";
+// import sketch from "./scripts/convoc/tonalli.js";
 
-import sketch2 from "./scripts/CC1/script/CC_taller1_Basicos";
-// import sketch from "./scripts/CC1/script/CC1_taller2.1_posicionYMovimiento";
-// import sketch from "./scripts/CC1/script/CC1_taller2.2";
-// import sketch from "./scripts/CC1/script/CC1_taller2.3_tiposDeMovimiento";
+// import sketch from "./scripts/CC1/script/CC_taller1_Basicos";
+// import sketch2 from "./scripts/CC1/script/CC1_taller2.1_posicionYMovimiento";
+import sketch3 from "./scripts/CC1/script/CC1_taller2.2";
+import sketch4 from "./scripts/CC1/script/CC1_taller2.3_tiposDeMovimiento";
 // import sketch from "./scripts/CC1/script/CC1_taller3_keyIF";
 // import sketch from "./scripts/CC1/script/CC1_taller3_MouseElse";
 // import sketch from "./scripts/CC1/script/CC1_taller4_while";
@@ -32,8 +32,8 @@ import sketch2 from "./scripts/CC1/script/CC_taller1_Basicos";
 // import sketch from "./scripts/CC1/script/CC1_taller4_Movbolita_loopAnidado";
 
 // import sketch from "./scripts/CC1/Ejemplos/CC1_ejemplo1_fondoFigura";
-// import sketch from "./scripts/CC1/Ejemplos/CC1_ejemplo1_cuadradoCirculos";
-// import sketch from "./scripts/CC1/Ejemplos/CC1_ejemplo1_tonosGris";
+import sketch from "./scripts/CC1/Ejemplos/CC1_ejemplo1_cuadradoCirculos";
+import sketch2 from "./scripts/CC1/Ejemplos/CC1_ejemplo1_tonosGris";
 // import sketch from "./scripts/CC1/Ejemplos/CC1_ejemplo2_BolitaBasico ";
 // import sketch from "./scripts/CC1/Ejemplos/CC1_ejemplo2_BolitaFronteraBasico";
 // import sketch from "./scripts/CC1/Ejemplos/CC1_ejemplo2.5_Bolita_vectores";
@@ -49,42 +49,65 @@ const GalleryContainer = (props) => {
   const { title, color, type } = props;
   const [page, setPage] = useState(1);
   const [state, setState] = useState({ sketch });
+  const [info, setInfo] = useState({
+    name: "",
+    autor: ""
+  });
   const classes = useStyles();
   const actualState = readState(API);
   const infoIntro = Array.from(actualState.intro);
+
+  function selectSketch(number) {
+    switch(number) {
+      case 1:
+        setState({  sketch: state.sketch = sketch })
+        break;
+      case 2:
+        setState({  sketch: state.sketch = sketch2 })
+        break;
+      case 3:
+        setState({  sketch: state.sketch = sketch3 })
+        break;
+      case 4:
+        setState({  sketch: state.sketch = sketch4 })
+        break;
+      default:
+        setState({  sketch: state.sketch = sketch })
+        break;
+    }
+  }
   
+  function getInfo() {
+    let data = infoIntro[page-1]
+    setInfo(data=>{
+      name: info.name = data.name.toString();
+    })
+  }
+
   function paginationArray() {
     let pages = []
     let newPage;
     let arrow = {text: "PREV"};
     pages.push(arrow);
     for(let i = 0; i<infoIntro.length; i++) {
-      if(i+1 === page)
+      if(page == i+1)
         newPage = {active: true, text: (i+1), onClick: (() => {
-          console.log("colored");
-          setState({
-            sketch: state.sketch === sketch ? sketch2 : sketch
-          })
-        }) }
+        })};
       else
-        newPage = {text: (i+1), onClick: ((item) => {
-          console.log(page+1);
-          console.log(item.id);
-          console.log("notengo nada");
-          setState({
-            sketch: state.sketch === sketch ? sketch2 : sketch
-          })
-          // setPage(page = i+1);
+        newPage = {active: false, text: (i+1), onClick: (() => {
+          selectSketch(i+1);
+          // getInfo();
+          setPage(page=>page=i+1);
         }
       )}
+      console.log("To page: ", page);
       pages.push(newPage);
     }
-    arrow = {text: "PREV"}
+    arrow = {text: "SIG"}
     pages.push(arrow);
     return pages;
   }
 
-  console.log(paginationArray());
   
   return (
     <GridContainer>
@@ -102,16 +125,6 @@ const GalleryContainer = (props) => {
           color={color}
           className={classes.main_pageNumber_container}
         />
-        {/* <PaginationCCD
-          totalPages={infoIntro.length}
-          actualPage={page}
-          onChange={() =>
-            setState({
-              ...state,
-              sketch: state.sketch === sketch ? sketch2 : sketch
-            })
-          }
-        /> */}
         <Paper className={classes.navpills_container}>
           <NavPills
             color={color}
@@ -122,10 +135,11 @@ const GalleryContainer = (props) => {
                 tabContent: (
                   <div className={classes.text_container}>
                     <em>Título:</em>
-                    <p>Glitch cassette</p>
+                    {/* <p>{`${(infoIntro[page-1].name)}`}</p> */}
+                    {/* <p>{{info.name}}</p> */}
                     <br />
                     <em>Autor:</em>
-                    <p>Luis Tonalli Olvera Torres</p>
+                    {/* <p>{`${(infoIntro[page-1].autor)}`}</p> */}
                     <br />
                     <em>Contacto:</em>
                     <a
