@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/materialCCD/static/css/main.d781a375.chunk.css",
-    "main.js": "/materialCCD/static/js/main.80e03831.chunk.js",
-    "main.js.map": "/materialCCD/static/js/main.80e03831.chunk.js.map",
+    "main.js": "/materialCCD/static/js/main.447f88ad.chunk.js",
+    "main.js.map": "/materialCCD/static/js/main.447f88ad.chunk.js.map",
     "runtime-main.js": "/materialCCD/static/js/runtime-main.9daed3f8.js",
     "runtime-main.js.map": "/materialCCD/static/js/runtime-main.9daed3f8.js.map",
-    "static/js/2.04c42a9d.chunk.js": "/materialCCD/static/js/2.04c42a9d.chunk.js",
-    "static/js/2.04c42a9d.chunk.js.map": "/materialCCD/static/js/2.04c42a9d.chunk.js.map",
+    "static/js/2.341b488b.chunk.js": "/materialCCD/static/js/2.341b488b.chunk.js",
+    "static/js/2.341b488b.chunk.js.map": "/materialCCD/static/js/2.341b488b.chunk.js.map",
     "index.html": "/materialCCD/index.html",
     "static/css/main.d781a375.chunk.css.map": "/materialCCD/static/css/main.d781a375.chunk.css.map",
-    "static/js/2.04c42a9d.chunk.js.LICENSE.txt": "/materialCCD/static/js/2.04c42a9d.chunk.js.LICENSE.txt",
+    "static/js/2.341b488b.chunk.js.LICENSE.txt": "/materialCCD/static/js/2.341b488b.chunk.js.LICENSE.txt",
     "static/media/audio2.1170ea66.png": "/materialCCD/static/media/audio2.1170ea66.png",
     "static/media/ausenciaTest_00.b7e7d38f.jpg": "/materialCCD/static/media/ausenciaTest_00.b7e7d38f.jpg",
     "static/media/datos.17730193.png": "/materialCCD/static/media/datos.17730193.png",
@@ -22,8 +22,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.9daed3f8.js",
-    "static/js/2.04c42a9d.chunk.js",
+    "static/js/2.341b488b.chunk.js",
     "static/css/main.d781a375.chunk.css",
-    "static/js/main.80e03831.chunk.js"
+    "static/js/main.447f88ad.chunk.js"
   ]
 }
