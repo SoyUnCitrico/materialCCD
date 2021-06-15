@@ -24,12 +24,12 @@ import P5Wrapper from "react-p5-wrapper";
 // import sketch2 from "./scripts/CC1/script/CC1_taller2.1_posicionYMovimiento";
 import sketch3 from "./scripts/CC1/script/CC1_taller2.2";
 import sketch4 from "./scripts/CC1/script/CC1_taller2.3_tiposDeMovimiento";
-// import sketch from "./scripts/CC1/script/CC1_taller3_keyIF";
-// import sketch from "./scripts/CC1/script/CC1_taller3_MouseElse";
+import sketch5 from "./scripts/CC1/script/CC1_taller3_keyIF";
+import sketch6 from "./scripts/CC1/script/CC1_taller3_MouseElse";
 // import sketch from "./scripts/CC1/script/CC1_taller4_while";
 // import sketch from "./scripts/CC1/script/CC1_taller4_baseMovbolita";
 // import sketch from "./scripts/CC1/script/CC1_taller4_MultipleMovbolita";
-// import sketch from "./scripts/CC1/script/CC1_taller4_Movbolita_loopAnidado";
+import sketch8 from "./scripts/CC1/script/CC1_taller4_Movbolita_loopAnidado";
 
 // import sketch from "./scripts/CC1/Ejemplos/CC1_ejemplo1_fondoFigura";
 import sketch from "./scripts/CC1/Ejemplos/CC1_ejemplo1_cuadradoCirculos";
@@ -37,25 +37,41 @@ import sketch2 from "./scripts/CC1/Ejemplos/CC1_ejemplo1_tonosGris";
 // import sketch from "./scripts/CC1/Ejemplos/CC1_ejemplo2_BolitaBasico ";
 // import sketch from "./scripts/CC1/Ejemplos/CC1_ejemplo2_BolitaFronteraBasico";
 // import sketch from "./scripts/CC1/Ejemplos/CC1_ejemplo2.5_Bolita_vectores";
-// import sketch from "./scripts/CC1/Ejemplos/CC1_ejemplo2.5._Bolita_vectores_Muchos";
-// import sketch from "./scripts/CC1/Ejemplos/CC1_ejemplo3_mousePaint";
+import sketch10 from "./scripts/CC1/Ejemplos/CC1_ejemplo2.5._Bolita_vectores_Muchos";
+import sketch7 from "./scripts/CC1/Ejemplos/CC1_ejemplo3_mousePaint";
 // import sketch from "./scripts/CC1/Ejemplos/CC1_ejemplo3_Bolita_mouseInt";
-// import sketch from "./scripts/CC1/Ejemplos/CC1_ejemplo4_Movbolita_loopAnidado_aros";
+import sketch9 from "./scripts/CC1/Ejemplos/CC1_ejemplo4_Movbolita_loopAnidado_aros";
 
 import readState from "../../hooks/readState";
-const API = "http://localhost:3000/sketchsInfo";
+const API = "https://soyuncitrico.github.io/jsonData/galleryInfo.json";
 
 const GalleryContainer = (props) => {
-  const { title, color, type } = props;
+  const { title, color } = props;
   const [page, setPage] = useState(1);
   const [state, setState] = useState({ sketch });
-  const [info, setInfo] = useState({
-    name: "",
-    autor: ""
-  });
+  // const [info, setInfo] = useState({
+  //   "id": 1,
+  //   "url": "URL",
+  //   "name": "Name",
+  //   "autor": "autor",
+  //   "nav_contact": [
+  //     {
+  //       "title": "contact_title",
+  //       "url": "contact_url"
+  //     }
+  //   ],
+  //   "nav_instructions": "--------",
+  //   "nav_code": [
+  //     {
+  //       "title": "code_title",
+  //       "url": "code_url"
+  //     }
+  //   ]
+  // });
   const classes = useStyles();
   const actualState = readState(API);
-  const infoIntro = Array.from(actualState.intro);
+  let infoState = Object.assign({}, actualState);
+  console.log(infoState.intro);
 
   function selectSketch(number) {
     switch(number) {
@@ -71,17 +87,28 @@ const GalleryContainer = (props) => {
       case 4:
         setState({  sketch: state.sketch = sketch4 })
         break;
+      case 5:
+        setState({  sketch: state.sketch = sketch5 })
+        break;
+      case 6:
+        setState({  sketch: state.sketch = sketch6 })
+        break;
+      case 7:
+        setState({  sketch: state.sketch = sketch7 })
+        break;
+      case 8:
+        setState({  sketch: state.sketch = sketch8 })
+        break;
+      case 9:
+        setState({  sketch: state.sketch = sketch9 })
+        break;
+      case 10:
+        setState({  sketch: state.sketch = sketch10 })
+        break;
       default:
         setState({  sketch: state.sketch = sketch })
         break;
     }
-  }
-  
-  function getInfo() {
-    let data = infoIntro[page-1]
-    setInfo(data=>{
-      name: info.name = data.name.toString();
-    })
   }
 
   function paginationArray() {
@@ -89,14 +116,13 @@ const GalleryContainer = (props) => {
     let newPage;
     let arrow = {text: "PREV"};
     pages.push(arrow);
-    for(let i = 0; i<infoIntro.length; i++) {
+    for(let i = 0; i< infoState.intro.length; i++) {
       if(page == i+1)
         newPage = {active: true, text: (i+1), onClick: (() => {
         })};
       else
         newPage = {active: false, text: (i+1), onClick: (() => {
           selectSketch(i+1);
-          // getInfo();
           setPage(page=>page=i+1);
         }
       )}
@@ -107,7 +133,6 @@ const GalleryContainer = (props) => {
     pages.push(arrow);
     return pages;
   }
-
   
   return (
     <GridContainer>
@@ -121,7 +146,7 @@ const GalleryContainer = (props) => {
       </GridItem>
       <GridItem sm={12} lg={4} className={classes.control_container}> 
         <Paginations
-          pages={paginationArray()}
+          pages={paginationArray()} 
           color={color}
           className={classes.main_pageNumber_container}
         />
@@ -135,8 +160,7 @@ const GalleryContainer = (props) => {
                 tabContent: (
                   <div className={classes.text_container}>
                     <em>Título:</em>
-                    {/* <p>{`${(infoIntro[page-1].name)}`}</p> */}
-                    {/* <p>{{info.name}}</p> */}
+                    {/* <p>{infoIntro}</p> */}
                     <br />
                     <em>Autor:</em>
                     {/* <p>{`${(infoIntro[page-1].autor)}`}</p> */}
@@ -210,6 +234,5 @@ const GalleryContainer = (props) => {
 GalleryContainer.propTypes = {
   title: PropTypes.string,
   color: PropTypes.string,
-  type: PropTypes.number,
 };
 export default GalleryContainer;
