@@ -18,14 +18,19 @@ const useStyles = makeStyles(styles);
 
 import P5Wrapper from "react-p5-wrapper";
 
-// import sketch from "./scripts/CC1/Ejemplos/CC1_ejemplo1_cuadradoCirculos";
+import sketch from "./scripts/CC1/Ejemplos/CC1_ejemplo1_cuadradoCirculos";
 import sketch2 from "./scripts/CC1/Ejemplos/CC1_ejemplo1_tonosGris";
 import sketch3 from "./scripts/CC1/script/CC1_taller2.2";
 import sketch4 from "./scripts/CC1/script/CC1_taller2.3_tiposDeMovimiento";
-import sketch from "./scripts/convoc/tonalli.js";
+import sketch5 from "./scripts/CC1/script/CC1_taller3_keyIF";
+import sketch6 from "./scripts/CC1/script/CC1_taller3_MouseElse";
+import sketch7 from "./scripts/CC1/Ejemplos/CC1_ejemplo3_mousePaint";
+import sketch8 from "./scripts/CC1/script/CC1_taller4_Movbolita_loopAnidado";
+import sketch9 from "./scripts/CC1/Ejemplos/CC1_ejemplo4_Movbolita_loopAnidado_aros";
+import sketch10 from "./scripts/CC1/Ejemplos/CC1_ejemplo2.5._Bolita_vectores_Muchos";
 
-const GalleryContainer = (props) => {
-  const { title, color, gallery } = props;
+const DataContainer = (props) => {
+  const { title, color, dataCode } = props;
   const [page, setPage] = useState(1);
   const [state, setState] = useState({ sketch });
   const classes = useStyles();
@@ -41,15 +46,15 @@ const GalleryContainer = (props) => {
               tabContent: (
                 <div className={classes.text_container}>
                 <em>Título:</em>
-                <p>{gallery[page-1].name}</p>
+                <p>{dataCode[page-1].name}</p>
                 <br />
                 <em>Autor:</em>
-                <p>{gallery[page-1].autor}</p>
+                <p>{dataCode[page-1].autor}</p>
                 <br />
                 <em>Contacto:</em>
-                {gallery[page-1].nav_code.length > 0 && 
+                {dataCode[page-1].nav_code.length > 0 && 
                   <ul>
-                    {gallery[page-1].nav_contact.map(item => 
+                    {dataCode[page-1].nav_contact.map(item => 
                       <li>
                         <a
                           target="_blank"
@@ -70,7 +75,7 @@ const GalleryContainer = (props) => {
               tabIcon: PetsIcon,
               tabContent: (
                 <div div className={classes.text_container}>
-                <p>{ gallery[page-1].nav_instructions }</p>
+                <p>{ dataCode[page-1].nav_instructions }</p>
                 </div>
               ),
             },
@@ -79,9 +84,9 @@ const GalleryContainer = (props) => {
               tabIcon: CodeIcon,
               tabContent: (
                 <div div className={classes.text_container}>
-                  {gallery[page-1].nav_code.length > 0 && 
+                  {dataCode[page-1].nav_code.length > 0 && 
                   <ul>
-                    {gallery[page-1].nav_code.map(item => 
+                    {dataCode[page-1].nav_code.map(item => 
                       <li>
                         <a
                           target="_blank"
@@ -103,7 +108,7 @@ const GalleryContainer = (props) => {
   };
 
   const renderPagination = () => {
-    console.log(gallery)
+    console.log(dataCode)
     return(
       <Paginations
         pages={paginationArray()} 
@@ -157,13 +162,13 @@ const GalleryContainer = (props) => {
     let newPage;
     let arrow = {text: "PREV", onClick: (()=>{
         if((actualPage <= 1))
-        setPage(page=>page=gallery.length);
+        setPage(page=>page=dataCode.length);
         else
           setPage(page-1);
       }
     )};
     pages.push(arrow);
-    for(let i = 0; i<gallery.length; i++) {
+    for(let i = 0; i<dataCode.length; i++) {
         if(page == i+1)
           newPage = {active: true, text: (i+1), onClick: (() => {})};
         else
@@ -176,7 +181,7 @@ const GalleryContainer = (props) => {
       }
     arrow = { text: "SIG", onClick: (() => {
       
-      if(actualPage >= gallery.length)
+      if(actualPage >= dataCode.length)
         setPage(page=>page=1);
       else
         setPage(page+1);
@@ -209,7 +214,7 @@ const GalleryContainer = (props) => {
       </Fragment>
   );
 };
-GalleryContainer.propTypes =  {
+DataContainer.propTypes =  {
   title: PropTypes.string,
   color: PropTypes.string,
 };
@@ -221,4 +226,4 @@ const mapStateToProps = state => {
     gallery: state.gallery
   };
 };
-export default connect(mapStateToProps, null)(GalleryContainer);
+export default connect(mapStateToProps, null)(DataContainer);

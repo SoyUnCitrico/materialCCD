@@ -1,58 +1,464 @@
+/*eslint-disable*/
 import React from "react";
 import ReactDOM from "react-dom";
-import { createBrowserHistory } from "history";
-import { Router, Route, Switch } from "react-router-dom";
-
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import reducer from "./reducers"
+import App from "./routes/App";
 import "assets/scss/material-kit-react.scss?v=1.10.0";
 
-// pages for this product
-import HomePage from "containers/HomePage";
-import AboutPage from "containers/AboutPage";
-import NotFound from "containers/NotFound";
-import GalleryLayout from "containers/GalleryLayout";
-import GalleryContainer from "components/SketchContainer/GalleryContainer";
-import HeaderGalleryLinks from "components/Header/HeaderGalleryLinks";
+const initialState = {
+  "intro": [
+    {
+      "id": 1,
+      "url": "./components/SketchContainer/scripts/CC1/script/CC_taller1_Basicos.js",
+      "name": "Comandos básicos",
+      "autor": "ccdtecno",
+      "nav_contact": [
+        {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/ccdtecno"
+        },
+        {
+        "title": "Github",
+        "url": "https://www.github.com/ccdtecno"
+        }
+      ],
+      "nav_instructions": "---",
+      "nav_code": [
+        {
+          "title": "Copia el código",
+          "url": "https://www.github.com/ccdtecno"
+        },
+        {
+          "title": "Edita el código",
+          "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "url": "./components/SketchContainer/scripts/CC1/script/CC1_taller2.1_posicionYMovimiento.js",
+      "name": "Posicion y movimiento",
+      "autor": "ccdtecno",
+      "nav_contact": [
+        {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/ccdtecno"
+        },
+        {
+        "title": "Github",
+        "url": "https://www.github.com/ccdtecno"
+        }
+      ],
+      "nav_instructions": "---",
+      "nav_code": [
+        {
+          "title": "Copia el código",
+          "url": "https://www.github.com/ccdtecno"
+        },
+        {
+          "title": "Edita el código código",
+          "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "url": "./components/SketchContainer/scripts/CC1/script/CC_taller1_Basicos.js",
+      "name": "Comandos básicos",
+      "autor": "ccdtecno",
+      "nav_contact": [
+        {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/ccdtecno"
+        },
+        {
+        "title": "Github",
+        "url": "https://www.github.com/ccdtecno"
+        }
+      ],
+      "nav_instructions": "---",
+      "nav_code": [
+        {
+          "title": "Copia el código",
+          "url": "https://www.github.com/ccdtecno"
+        },
+        {
+          "title": "Edita el código código",
+          "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "url": "./components/SketchContainer/scripts/CC1/script/CC_taller1_Basicos.js",
+      "name": "Comandos básicos",
+      "autor": "ccdtecno",
+      "nav_contact": [
+        {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/ccdtecno"
+        },
+        {
+        "title": "Github",
+        "url": "https://www.github.com/ccdtecno"
+        }
+      ],
+      "nav_instructions": "---",
+      "nav_code": [
+        {
+          "title": "Copia el código",
+          "url": "https://www.github.com/ccdtecno"
+        },
+        {
+          "title": "Edita el código código",
+          "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "url": "./components/SketchContainer/scripts/CC1/script/CC_taller1_Basicos.js",
+      "name": "Comandos básicos",
+      "autor": "ccdtecno",
+      "nav_contact": [
+        {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/ccdtecno"
+        },
+        {
+        "title": "Github",
+        "url": "https://www.github.com/ccdtecno"
+        }
+      ],
+      "nav_instructions": "---",
+      "nav_code": [
+        {
+          "title": "Copia el código",
+          "url": "https://www.github.com/ccdtecno"
+        },
+        {
+          "title": "Edita el código código",
+          "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "url": "./components/SketchContainer/scripts/CC1/script/CC_taller1_Basicos.js",
+      "name": "Comandos básicos",
+      "autor": "ccdtecno",
+      "nav_contact": [
+        {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/ccdtecno"
+        },
+        {
+        "title": "Github",
+        "url": "https://www.github.com/ccdtecno"
+        }
+      ],
+      "nav_instructions": "---",
+      "nav_code": [
+        {
+          "title": "Copia el código",
+          "url": "https://www.github.com/ccdtecno"
+        },
+        {
+          "title": "Edita el código código",
+          "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "url": "./components/SketchContainer/scripts/CC1/script/CC_taller1_Basicos.js",
+      "name": "Comandos básicos",
+      "autor": "ccdtecno",
+      "nav_contact": [
+        {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/ccdtecno"
+        },
+        {
+        "title": "Github",
+        "url": "https://www.github.com/ccdtecno"
+        }
+      ],
+      "nav_instructions": "---",
+      "nav_code": [
+        {
+          "title": "Copia el código",
+          "url": "https://www.github.com/ccdtecno"
+        },
+        {
+          "title": "Edita el código código",
+          "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "url": "./components/SketchContainer/scripts/CC1/script/CC_taller1_Basicos.js",
+      "name": "Comandos básicos",
+      "autor": "ccdtecno",
+      "nav_contact": [
+        {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/ccdtecno"
+        },
+        {
+        "title": "Github",
+        "url": "https://www.github.com/ccdtecno"
+        }
+      ],
+      "nav_instructions": "---",
+      "nav_code": [
+        {
+          "title": "Copia el código",
+          "url": "https://www.github.com/ccdtecno"
+        },
+        {
+          "title": "Edita el código código",
+          "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "url": "./components/SketchContainer/scripts/CC1/script/CC_taller1_Basicos.js",
+      "name": "Comandos básicos",
+      "autor": "ccdtecno",
+      "nav_contact": [
+        {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/ccdtecno"
+        },
+        {
+        "title": "Github",
+        "url": "https://www.github.com/ccdtecno"
+        }
+      ],
+      "nav_instructions": "---",
+      "nav_code": [
+        {
+          "title": "Copia el código",
+          "url": "https://www.github.com/ccdtecno"
+        },
+        {
+          "title": "Edita el código código",
+          "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "url": "./components/SketchContainer/scripts/CC1/script/CC_taller1_Basicos.js",
+      "name": "Comandos básicos",
+      "autor": "ccdtecno",
+      "nav_contact": [
+        {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/ccdtecno"
+        },
+        {
+        "title": "Github",
+        "url": "https://www.github.com/ccdtecno"
+        }
+      ],
+      "nav_instructions": "---",
+      "nav_code": [
+        {
+          "title": "Copia el código",
+          "url": "https://www.github.com/ccdtecno"
+        },
+        {
+          "title": "Edita el código código",
+          "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+        }
+      ]
+    }
+  ],
+  "audio": [
+    {
+      "id": 1,
+      "url": "./components/SketchContainer/scripts/CC1/script/CC_taller1_Basicos.js",
+      "name": "Comandos básicos",
+      "autor": "ccdtecno",
+      "nav_contact": [
+        {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/ccdtecno"
+        },
+        {
+        "title": "Github",
+        "url": "https://www.github.com/ccdtecno"
+        }
+      ],
+      "nav_instructions": "---",
+      "nav_code": [
+        {
+          "title": "Copia el código",
+          "url": "https://www.github.com/ccdtecno"
+        },
+        {
+          "title": "Edita el código",
+          "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+        }
+      ]
+    }
+  ],
+  "dataCode": [
+    {
+      "id": 1,
+      "url": "./components/SketchContainer/scripts/CC1/script/CC_taller1_Basicos.js",
+      "name": "Comandos básicos",
+      "autor": "ccdtecno",
+      "nav_contact": [
+        {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/ccdtecno"
+        },
+        {
+        "title": "Github",
+        "url": "https://www.github.com/ccdtecno"
+        }
+      ],
+      "nav_instructions": "---",
+      "nav_code": [
+        {
+          "title": "Copia el código",
+          "url": "https://www.github.com/ccdtecno"
+        },
+        {
+          "title": "Edita el código",
+          "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+        }
+      ]
+    }  
+  ],
+  "gallery": [
+    {
+      "id": 1,
+      "name": "tvshow-2",
+      "url": "In the Dark",
+      "nav_title": "Scripted",
+      "nav_autor": "English",
+      "nav_contact": [
+        {
+          "title": "Instagram",
+          "url": "https://www.github.com/ccdtecno"
+        },
+        {
+          "title": "Facebook",
+          "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+        }
+      ],
+      "nav_instructions": "Para que comience el audio se debe subir o bajar el volumen con el controlador que se encuentra debajo de la animación",
+      "nav_code": [
+          {
+            "title": "Copia el código",
+            "url": "https://www.github.com/ccdtecno"
+          },
+          {
+            "title": "Edita el código código",
+            "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+          }
+        ],
+    },
+    {
+      "id": 2,
+      "name": "tvshow-2",
+      "url": "In the Dark",
+      "nav_title": "Scripted",
+      "nav_autor": "English",
+      "nav_contact": [
+        {
+          "title": "Instagram",
+          "url": "https://www.github.com/ccdtecno"
+        },
+        {
+          "title": "Facebook",
+          "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+        }
+      ],
+      "nav_instructions": "Para que comience el audio se debe subir o bajar el volumen con el controlador que se encuentra debajo de la animación",
+      "nav_code": [
+          {
+            "title": "Copia el código",
+            "url": "https://www.github.com/ccdtecno"
+          },
+          {
+            "title": "Edita el código código",
+            "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+          }
+        ],
+    },
+    {
+      "id": 3,
+      "name": "tvshow-2",
+      "url": "In the Dark",
+      "nav_title": "Scripted",
+      "nav_autor": "English",
+      "nav_contact": [
+        {
+          "title": "Instagram",
+          "url": "https://www.github.com/ccdtecno"
+        },
+        {
+          "title": "Facebook",
+          "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+        }
+      ],
+      "nav_instructions": "Para que comience el audio se debe subir o bajar el volumen con el controlador que se encuentra debajo de la animación",
+      "nav_code": [
+          {
+            "title": "Copia el código",
+            "url": "https://www.github.com/ccdtecno"
+          },
+          {
+            "title": "Edita el código código",
+            "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+          }
+        ],
+    },
+    {
+      "id": 4,
+      "name": "tvshow-2",
+      "url": "In the Dark",
+      "nav_title": "Scripted",
+      "nav_autor": "English",
+      "nav_contact": [
+        {
+          "title": "Instagram",
+          "url": "https://www.github.com/ccdtecno"
+        },
+        {
+          "title": "Facebook",
+          "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+        }
+      ],
+      "nav_instructions": "Para que comience el audio se debe subir o bajar el volumen con el controlador que se encuentra debajo de la animación",
+      "nav_code": [
+          {
+            "title": "Copia el código",
+            "url": "https://www.github.com/ccdtecno"
+          },
+          {
+            "title": "Edita el código código",
+            "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+          }
+        ],
+    }
+  ]
+};
 
-var hist = createBrowserHistory();
+const store = createStore(reducer, initialState);
 
 ReactDOM.render(
-  <Router history={hist}>
-    <Switch>
-      <Route exact path="/gallery">
-        <GalleryLayout links={<HeaderGalleryLinks />} color={"danger"}>
-          <GalleryContainer title={"Galería"} color={"danger"} type={4} />
-        </GalleryLayout>
-      </Route>
-      <Route exact path="/intro">
-        <GalleryLayout links={<HeaderGalleryLinks />} color={"warning"}>
-          <GalleryContainer
-            title={"Introducción al código creativo"}
-            color={"warning"}
-            type={0}
-          />
-        </GalleryLayout>
-      </Route>
-      <Route exact path="/audio">
-        <GalleryLayout links={<HeaderGalleryLinks />} color={"warning"}>
-          <GalleryContainer title={"Audio y web"} color={"warning"} type={1} />
-        </GalleryLayout>
-      </Route>
-      <Route exact path="/datos">
-        <GalleryLayout links={<HeaderGalleryLinks />} color={"warning"}>
-          <GalleryContainer
-            title={"Código y datos"}
-            color={"warning"}
-            type={2}
-          />
-        </GalleryLayout>
-      </Route>
-      <Route exact path="/about" component={AboutPage} />
-      {/* <Route exact path="/gallery" component={GalleryPage} /> */}
-      {/* <Route exact path="/CCD1/1" component={TallerPage} /> */}
-      <Route exact path="/materialCCD" component={HomePage} />
-      <Route exact path="/" component={HomePage} />
-      <Route component={NotFound} />
-    </Switch>
-  </Router>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById("root")
 );

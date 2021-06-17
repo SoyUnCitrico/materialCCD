@@ -5,7 +5,6 @@ import Header from "components/Header/Header.js";
 import HeaderLinks from "components/Header/HeaderLinks";
 import Footer from "components/Footer/Footer.js";
 import GridItem from "components/Grid/GridItem.js";
-// import Container from "@material-ui/core/Container";
 import Parallax from "../components/Parallax/Parallax";
 import GridContainer from "components/Grid/GridContainer";
 
@@ -33,11 +32,6 @@ const HomePage = () => {
           <CarouselMain></CarouselMain>
         </GridItem>
       </GridContainer>
-      {/* <GridContainer>
-        <GridItem xs={12} className={classes.home__carousel}>
-          <CarouselMain></CarouselMain>
-        </GridItem>
-      </GridContainer> */}
       <Footer />
     </>
   );
