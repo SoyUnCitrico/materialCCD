@@ -18,16 +18,11 @@ const useStyles = makeStyles(styles);
 
 import P5Wrapper from "react-p5-wrapper";
 
-import sketch from "./scripts/CC1/Ejemplos/CC1_ejemplo1_cuadradoCirculos";
-import sketch2 from "./scripts/CC1/Ejemplos/CC1_ejemplo1_tonosGris";
-import sketch3 from "./scripts/CC1/script/CC1_taller2.2";
-import sketch4 from "./scripts/CC1/script/CC1_taller2.3_tiposDeMovimiento";
-import sketch5 from "./scripts/CC1/script/CC1_taller3_keyIF";
-import sketch6 from "./scripts/CC1/script/CC1_taller3_MouseElse";
-import sketch7 from "./scripts/CC1/Ejemplos/CC1_ejemplo3_mousePaint";
-import sketch8 from "./scripts/CC1/script/CC1_taller4_Movbolita_loopAnidado";
-import sketch9 from "./scripts/CC1/Ejemplos/CC1_ejemplo4_Movbolita_loopAnidado_aros";
-import sketch10 from "./scripts/CC1/Ejemplos/CC1_ejemplo2.5._Bolita_vectores_Muchos";
+import sketch from "./scripts/CC3/Clase1/Ejemplo2";
+import sketch2 from "./scripts/CC3/Clase2/Ejemplo4";
+import sketch3 from "./scripts/CC3/Clase3/Ejemplo5";
+import sketch4 from "./scripts/CC3/Clase3/Ejemplo6";
+import sketch5 from "./scripts/CC3/Clase4/Ejemplo8";
 
 const DataContainer = (props) => {
   const { title, color, dataCode } = props;
@@ -134,21 +129,6 @@ const DataContainer = (props) => {
           break;
         case 5:
           setState({  sketch: state.sketch = sketch5 })
-          break;
-        case 6:
-          setState({  sketch: state.sketch = sketch6 })
-          break;
-        case 7:
-          setState({  sketch: state.sketch = sketch7 })
-          break;
-        case 8:
-          setState({  sketch: state.sketch = sketch8 })
-          break;
-        case 9:
-          setState({  sketch: state.sketch = sketch9 })
-          break;
-        case 10:
-          setState({  sketch: state.sketch = sketch10 })
           break;
         default:
           setState({  sketch: state.sketch = sketch })

@@ -313,7 +313,7 @@ const initialState = {
     {
       "id": 1,
       "url": "./components/SketchContainer/scripts/CC1/script/CC_taller1_Basicos.js",
-      "name": "Comandos básicos",
+      "name": "Manejando datos",
       "autor": "ccdtecno",
       "nav_contact": [
         {
@@ -336,7 +336,115 @@ const initialState = {
           "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
         }
       ]
-    }  
+    },
+    {
+      "id": 2,
+      "url": "./components/SketchContainer/scripts/CC1/script/CC_taller1_Basicos.js",
+      "name": "Arreglo de colores",
+      "autor": "ccdtecno",
+      "nav_contact": [
+        {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/ccdtecno"
+        },
+        {
+        "title": "Github",
+        "url": "https://www.github.com/ccdtecno"
+        }
+      ],
+      "nav_instructions": "---",
+      "nav_code": [
+        {
+          "title": "Copia el código",
+          "url": "https://www.github.com/ccdtecno"
+        },
+        {
+          "title": "Edita el código",
+          "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "url": "./components/SketchContainer/scripts/CC1/script/CC_taller1_Basicos.js",
+      "name": "Colores de crayola",
+      "autor": "ccdtecno",
+      "nav_contact": [
+        {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/ccdtecno"
+        },
+        {
+        "title": "Github",
+        "url": "https://www.github.com/ccdtecno"
+        }
+      ],
+      "nav_instructions": "---",
+      "nav_code": [
+        {
+          "title": "Copia el código",
+          "url": "https://www.github.com/ccdtecno"
+        },
+        {
+          "title": "Edita el código",
+          "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "url": "./components/SketchContainer/scripts/CC1/script/CC_taller1_Basicos.js",
+      "name": "Leyendo Temperatura",
+      "autor": "ccdtecno",
+      "nav_contact": [
+        {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/ccdtecno"
+        },
+        {
+        "title": "Github",
+        "url": "https://www.github.com/ccdtecno"
+        }
+      ],
+      "nav_instructions": "---",
+      "nav_code": [
+        {
+          "title": "Copia el código",
+          "url": "https://www.github.com/ccdtecno"
+        },
+        {
+          "title": "Edita el código",
+          "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "url": "./components/SketchContainer/scripts/CC1/script/CC_taller1_Basicos.js",
+      "name": "Un satelite por el espacio",
+      "autor": "ccdtecno",
+      "nav_contact": [
+        {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/ccdtecno"
+        },
+        {
+        "title": "Github",
+        "url": "https://www.github.com/ccdtecno"
+        }
+      ],
+      "nav_instructions": "---",
+      "nav_code": [
+        {
+          "title": "Copia el código",
+          "url": "https://www.github.com/ccdtecno"
+        },
+        {
+          "title": "Edita el código",
+          "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+        }
+      ]
+    }
   ],
   "gallery": [
     {
