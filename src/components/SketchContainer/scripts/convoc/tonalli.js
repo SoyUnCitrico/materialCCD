@@ -2,7 +2,7 @@
 // import * as p5 from "p5";
 // window.p5 = p5;
 // import "../libraries/p5.sound";
-// import song from "../../assets/audio/nena.mp3";
+// import mySong from "../../assets/audio/nena.mp3";
 // const Sketch = (p5) => {
 export default function sketch(p5) {
   let color1, color2, aumento, aumento1, r,b,g, m;
@@ -14,7 +14,9 @@ export default function sketch(p5) {
   let a, c,d;
 
   // p5.preload = () => {
-  //   song = p5.loadSound(url("../../assets/audio/nena.mp3"),loaded);
+  //   song = p5.loadSound(url("../audio/nena.mp3"), () =>{
+  //     console.log("La canción ha sido cargada");
+  //   });
   // }
 
   p5.setup = () => {

@@ -18,11 +18,11 @@ const useStyles = makeStyles(styles);
 
 import P5Wrapper from "react-p5-wrapper";
 
-// import sketch from "./scripts/CC1/Ejemplos/CC1_ejemplo1_cuadradoCirculos";
-import sketch2 from "./scripts/CC1/Ejemplos/CC1_ejemplo1_tonosGris";
-import sketch3 from "./scripts/CC1/script/CC1_taller2.2";
-import sketch4 from "./scripts/CC1/script/CC1_taller2.3_tiposDeMovimiento";
 import sketch from "./scripts/convoc/tonalli.js";
+import sketch2 from "./scripts/convoc/suspiros_hunahpu";
+import sketch3 from "./scripts/convoc/neuron_hunahpu";
+import sketch4 from "./scripts/convoc/fugitiva96";
+
 
 const GalleryContainer = (props) => {
   const { title, color, gallery } = props;

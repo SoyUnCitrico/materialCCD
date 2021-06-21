@@ -1,5 +1,7 @@
-var sketch2 = function(s){
-  
+/*eslint-disable*/
+export default function sketch2(s){
+    let Canvas1;
+    let Canvas2;
     s.sonido;
     s.transformada;
     s.botonPlay;
@@ -13,16 +15,15 @@ var sketch2 = function(s){
     s.posInicialY;
     s.bandas;
       
-      s.preload = function(){
-      
-      s.sonido = s.loadSound('../assets/audio/radius1.mp3');
-      s.print('El sonido ha sido cargado');
-        
+    s.preload = function(){  
+      // s.sonido = s.loadSound('../assets/audio/radius1.mp3');
+      s.print('El sonido ha sido cargado');    
     }
       
-      s.setup = function(){
-        Canvas1 =s.createCanvas(350, 100).parent('main-gallery__sketch--container');
-        Canvas1.position(450,260);
+    s.setup = function(){
+      Canvas1 = s.createCanvas(350, 100);
+      Canvas1.position(450,260);
+      
       
       // rectMode(CENTER);
       //Creacion de elementos del DOM
@@ -45,8 +46,8 @@ var sketch2 = function(s){
       //Posición del slider modificador de onda
       s.sliderRate.position(70,540);
       s.bandas = 1024;
-      s.transformada = new p5.FFT(.8,s.bandas);
-      s.amplitud = new p5.Amplitude();
+      // s.transformada = new p5.FFT(.8,s.bandas);
+      // s.amplitud = new p5.Amplitude();
       
       s.posInicialY = s.height/2;
         
@@ -55,23 +56,23 @@ var sketch2 = function(s){
     s.draw = function(){
       
       s.background(88, 70, 187 );
-      s.sonido.amp(s.sliderVol.value());
-      s.sonido.rate(s.sliderRate.value());
+      // s.sonido.amp(s.sliderVol.value());
+      // s.sonido.rate(s.sliderRate.value());
       // Dibuja un cuadrado en el centro del canvas
      
       
       // Dibuja la forma de onda con una linea
-      s.onda = s.transformada.waveform();
+      // s.onda = s.transformada.waveform();
       s.stroke(244, 247, 149 );
       s.noFill();
       s.beginShape();
-      for(s.i = 2; s.i < s.onda.length; s.i++) {
-        s.x = s.map(s.i,0,s.onda.length,0,s.width);
-        s.y = s.map(s.onda[s.i],-1,1,-s.height,s.height)
-        s.y += s.posInicialY;
-        s.curveVertex(s.x,s.y);
-        // point(x,y)
-      }
+      // for(s.i = 2; s.i < s.onda.length; s.i++) {
+      //   s.x = s.map(s.i,0,s.onda.length,0,s.width);
+      //   // s.y = s.map(s.onda[s.i],-1,1,-s.height,s.height)
+      //   s.y += s.posInicialY;
+      //   s.curveVertex(s.x,s.y);
+      //   // point(x,y)
+      // }
       s.endShape();
       s.pop();
       
@@ -82,163 +83,153 @@ var sketch2 = function(s){
       s.fill(149, 247, 184 );
       s.w = s.width / 24;
       s.h = s.height/2
-      s.espectro = s.transformada.analyze() 
-      for(s.i = 0; s.i < s.espectro.length; s.i++) {
-        s.amp = s.espectro[s.i];
-        s.y = s.map(s.amp,0,255,0,-s.h) 
-        s.rect(s.i*s.w,s.height,s.w-2,s.y)
-        // point(x,y) 
-      }
+      // s.espectro = s.transformada.analyze() 
+      // for(s.i = 0; s.i < s.espectro.length; s.i++) {
+      //   s.amp = s.espectro[s.i];
+      //   s.y = s.map(s.amp,0,255,0,-s.h) 
+      //   s.rect(s.i*s.w,s.height,s.w-2,s.y)
+      //   // point(x,y) 
+      // }
       s.pop();
       
     }
-      s.toggle = function(){
-        if(s.sonido.isPlaying()) {
-        s.sonido.pause();
-        s.print('Pausa')
-      } else {
-        s.sonido.play();
-        s.print('Play')
-      }
-        
-      }
+    
+    s.toggle = function(){
+      //   if(s.sonido.isPlaying()) {
+      //   s.sonido.pause();
+      //   s.print('Pausa')
+      // } else {
+      //   s.sonido.play();
+      //   s.print('Play')
+      // }      
+    }
       
-      s.alto = function(){
-       
-        s.sonido.stop();
-        
-      }
+    s.alto = function(){   
+      s.sonido.stop();
+    }
       
-      s.aleatorio = function(){
-        
-      s.duracion = s.sonido.duration();
-      s.t = s.random(s.duracion);
-      s.sonido.jump(s.t);
-      
+    s.aleatorio = function(){
+      // s.duracion = s.sonido.duration();
+      // s.t = s.random(s.duracion);
+      // s.sonido.jump(s.t);      
       s.print(s.onda);
-      
-        
-      }
-      
     }
+  }   
+
+  // export default function sketch1(w) {
+  //   let Canvas2;
+  //   w.song;
     
-    var sketch1 = function(w) {
+  //   w.sliderRate;
+  //   w.sliderPan;
+  //   w.sliderAlpha;
     
-    w.song;
+  //   w.stopButton;
     
-    w.sliderRate;
-    w.sliderPan;
-    w.sliderAlpha;
+  //   w.onda;
+  //   w.fft;
+  //   w.amp;
     
-    w.stopButton;
-    
-    w.onda;
-    w.fft;
-    w.amp;
-    
-    w.value = 0
-    w.op = w.false
+  //   w.value = 0
+  //   w.op = w.false
       
-      w.preload = function() {
+  //   w.preload = function() {
         
-        w.song = w.loadSound("../assets/audio/radius1.mp3");
+  //       // w.song = w.loadSound("../assets/audio/radius1.mp3");
         
-      }
+  //   }
        
-      w.setup = function(){
-      Canvas2=w.createCanvas(350,350).parent('main-gallery__sketch--container');;
-      Canvas2.position(50,150)
+  //   w.setup = function(){
+  //     Canvas2=w.createCanvas(350,350);
+  //     Canvas2.position(50,150)
         
-      //song.play()
-      w.fft = new p5.FFT()
-      w.amp = new p5.Amplitude()
-      w.song.setVolume(0.1)
+  //     //song.play()
+  //     // w.fft = new p5.FFT()
+  //     // w.amp = new p5.Amplitude()
+  //     // w.song.setVolume(0.1)
     
-      w.sliderRate = w.createSlider(0, 1.5, 1, 0.01)
-      //Posición slider rate
-      w.sliderRate.position(500,520)
-      w.sliderPan = w.createSlider(-1, 1, 0, 0.01)
-      //Posición slider Pan
-      w.sliderPan.position(500,450)
-      w.sliderAlpha = w.createSlider(0, 100, 90, 0.1)
-      // Posición slider Alpha
-      w.sliderAlpha.position(500,500)
+  //     w.sliderRate = w.createSlider(0, 1.5, 1, 0.01)
+  //     //Posición slider rate
+  //     w.sliderRate.position(500,520)
+  //     w.sliderPan = w.createSlider(-1, 1, 0, 0.01)
+  //     //Posición slider Pan
+  //     w.sliderPan.position(500,450)
+  //     w.sliderAlpha = w.createSlider(0, 100, 90, 0.1)
+  //     // Posición slider Alpha
+  //     w.sliderAlpha.position(500,500)
     
-      //w.stopButton = w.createButton("Stop")
-      //w.stopButton.mousePressed(w.toggleSong)
+  //     // w.stopButton = w.createButton("Stop")
+  //     // w.stopButton.mousePressed(w.toggleSong)
     
-      w.noStroke()    
-      } 
+  //     w.noStroke()    
+  //     } 
     
-      w.draw = function()
-      {
-        if (w.op) {
-        w.fill(1, 22, 39)
-      } else {
-        w.fill(1, 22, 39, w.sliderAlpha.value())
-      }
+  //     w.draw = function()
+  //     {
+  //       if (w.op) {
+  //       w.fill(1, 22, 39)
+  //     } else {
+  //       w.fill(1, 22, 39, w.sliderAlpha.value())
+  //     }
     
-      w.rect(0, 0, w.width, w.height)
-      w.translate(w.width / 2, w.height / 2)
-      w.song.rate(w.sliderRate.value())
-      w.song.pan(w.sliderPan.value())
+  //     w.rect(0, 0, w.width, w.height)
+  //     w.translate(w.width / 2, w.height / 2)
+  //     // w.song.rate(w.sliderRate.value())
+  //     // w.song.pan(w.sliderPan.value())
     
-      w.onda = w.fft.waveform();
+  //     // w.onda = w.fft.waveform();
     
-      w.n = w.onda.length
-      w.r0 = 100;
+  //     // w.n = w.onda.length
+  //     w.r0 = 100;
     
-      w.push()
-      w.blendMode(w.ADD)
-      for (w.i = 0; w.i < w.n; w.i++) {
-        w.theta = 1 * w.TAU / w.n * w.i ;
-        // w.alpha = 1 * w.PI / w.n * w.i
-        w.r = w.r0 //+ i/n*200
-        w.R = w.map(w.onda[w.i], -1, 1, -w.r0, w.r0) * 5;
+  //     w.push()
+  //     w.blendMode(w.ADD)
+  //     for (w.i = 0; w.i < w.n; w.i++) {
+  //       w.theta = 1 * w.TAU / w.n * w.i ;
+  //       // w.alpha = 1 * w.PI / w.n * w.i
+  //       w.r = w.r0 //+ i/n*200
+  //       w.R = w.map(w.onda[w.i], -1, 1, -w.r0, w.r0) * 5;
         
-        // w.k = (w.r / w.R)
-        w.x = 1*(w.R+w.r)*w.cos(w.theta) + (w.R+w.r)*w.cos(20*w.theta)
-        w.y = 1*(w.R+w.r)*w.sin(w.theta)-(w.R+w.r)*w.sin(20*w.theta)
-        w.push()
-        if (w.i % 3 == 0) {
-          w.stroke(177, 77, 197 )
-        } else {
-          if (w.i % 3 == 1) {
-            w.stroke(77, 197, 144 )
-          } else {
-            w.stroke(177, 77, 197 );
-          }
-        }
-        w.strokeWeight(3)
-        w.point(w.x, w.y);
-        w.pop()
-      }
-      w.pop()
-      }
+  //       // w.k = (w.r / w.R)
+  //       w.x = 1*(w.R+w.r)*w.cos(w.theta) + (w.R+w.r)*w.cos(20*w.theta)
+  //       w.y = 1*(w.R+w.r)*w.sin(w.theta)-(w.R+w.r)*w.sin(20*w.theta)
+  //       w.push()
+  //       if (w.i % 3 == 0) {
+  //         w.stroke(177, 77, 197 )
+  //       } else {
+  //         if (w.i % 3 == 1) {
+  //           w.stroke(77, 197, 144 )
+  //         } else {
+  //           w.stroke(177, 77, 197 );
+  //         }
+  //       }
+  //       w.strokeWeight(3)
+  //       w.point(w.x, w.y);
+  //       w.pop()
+  //     }
+  //     w.pop()
+  //     }
     
-    w.keyPressed = function(){
-        if (w.value === 0) {
-        w.value = 1;
-      } else {
-        w.value = 0;
-      }
-      w.op = !w.op
-    }
+  //   w.keyPressed = function(){
+  //       if (w.value === 0) {
+  //       w.value = 1;
+  //     } else {
+  //       w.value = 0;
+  //     }
+  //     w.op = !w.op
+  //   }
     
-    w.jumpSong = function(){
+  //   w.jumpSong = function(){
      
-      w.len = w.song.duration()
-      w.t = w.random(w.len)
-      w.song.jump(w.t)
+  //     // w.len = w.song.duration()
+  //     // w.t = w.random(w.len)
+  //     // w.song.jump(w.t)
       
-    }
+  //   }
     
-    w.toggleSong = function(){
+  //   w.toggleSong = function(){
       
-      w.status = w.song.isPlaying();
-      w.song.isPlaying() == w.true ? w.song.pause() : w.song.play();
-    }
-    }
-    
-    var waves = new p5(sketch1);
-    var sonido = new p5(sketch2);
+  //     // w.status = w.song.isPlaying();
+  //     // w.song.isPlaying() == w.true ? w.song.pause() : w.song.play();
+  //   }
+  //   }
