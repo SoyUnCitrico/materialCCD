@@ -24,7 +24,9 @@ export default function sketch(p5) {
       // si el boton pulsado es el derecho:
       if (p5.mouseButton === p5.RIGHT) {
         // cambia la forma a circulo
-        p5.ellipse(p5.width/2,p5.height/2,ancho)
+        p5.noStroke();
+        p5.fill(255,0,0);
+        p5.ellipse(p5.width/2,p5.height/2,ancho);
       }
     }
 

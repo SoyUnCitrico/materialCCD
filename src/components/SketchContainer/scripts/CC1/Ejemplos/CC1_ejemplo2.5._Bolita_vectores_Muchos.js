@@ -9,6 +9,7 @@ export default function sketch(p5) {
   // Caracteristicas de la frontera
   let initFrontera, finFrontera;
   let bolCol, bolCol2, bolCol3;
+  let isBorder = true;
 
 
   p5.setup = () => {
@@ -18,19 +19,19 @@ export default function sketch(p5) {
     
     // Inicialización de variables
     sizeBol = 50;
-    posBolita = p5.createVector(p5.width/4 + 10, 10);
+    posBolita = p5.createVector(p5.width/2 , 60);
     velBolita = p5.createVector(1, 2);
     
-    sizeBol2 = 20;
-    posBolita2 = p5.createVector(p5.width/4 + 10, p5.height/100);
+    sizeBol2 = 25;
+    posBolita2 = p5.createVector(p5.width/3, p5.height-100);
     velBolita2 = p5.createVector(-5, -1);
     
     sizeBol3 = 10;
-    posBolita3 = p5.createVector(p5.width/4 + 80, 10);
+    posBolita3 = p5.createVector(p5.width/4 + 80, 60);
     velBolita3 = p5.createVector(5, 7);
     
-    initFrontera = p5.createVector(p5.width/4,0);
-    finFrontera = p5.createVector(p5.width*3/4, p5.height);
+    initFrontera = p5.createVector(p5.width/4,50);
+    finFrontera = p5.createVector(p5.width*3/4, p5.height-50);
     
     // Colores de bolitas
     bolCol = p5.color(30,200,220);
@@ -40,7 +41,7 @@ export default function sketch(p5) {
   }
 
   p5.draw = () => {
-    p5.background(220);
+    p5.background(0);
     dibujaBolita(posBolita.x,posBolita.y,sizeBol,bolCol);
     dibujaBolita(posBolita2.x,posBolita2.y,sizeBol2,bolCol2);
     dibujaBolita(posBolita3.x,posBolita3.y,sizeBol3,bolCol3);
@@ -50,9 +51,8 @@ export default function sketch(p5) {
 
   function dibujaBolita(posX,posY,sz,col) {
     p5.push();
-    p5.noFill();
-    p5.stroke(col);
-    p5.strokeWeight(2);
+    p5.fill(col);
+    p5.noStroke();
     p5.ellipse(posX,posY,sz);
     p5.pop();
   }
@@ -91,13 +91,26 @@ export default function sketch(p5) {
       velBolita3.y *= -1;
     }
     
-    // Dibujar frontera
+
+    if(isBorder)
+      dibujarFrontera(inicio, final);
+  }
+
+  function dibujarFrontera(init, end) {
     p5.push();
     p5.noFill();
+    p5.stroke(120);
+    p5.strokeWeight(3);
     p5.rectMode(p5.CORNERS);
-    p5.rect(inicio.x, inicio.y, final.x, final.y);
+    p5.rect(init.x, init.y, end.x, end.y);
     p5.pop();
-    
+  }
+
+  p5.keyPressed = () => {
+    console.log(p5.keyCode);
+    if(p5.keyCode == 32) {
+      isBorder = !isBorder;
+    }
   }
 }
 

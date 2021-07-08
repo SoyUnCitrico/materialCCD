@@ -25,8 +25,8 @@ import sketch4 from "./scripts/CC1/script/CC1_taller2.3_tiposDeMovimiento";
 import sketch5 from "./scripts/CC1/script/CC1_taller3_keyIF";
 import sketch6 from "./scripts/CC1/script/CC1_taller3_MouseElse";
 import sketch7 from "./scripts/CC1/Ejemplos/CC1_ejemplo3_mousePaint";
-import sketch8 from "./scripts/CC1/script/CC1_taller4_Movbolita_loopAnidado";
-import sketch9 from "./scripts/CC1/Ejemplos/CC1_ejemplo4_Movbolita_loopAnidado_aros";
+import sketch9 from "./scripts/CC1/script/CC1_taller4_Movbolita_loopAnidado";
+import sketch8 from "./scripts/CC1/Ejemplos/CC1_ejemplo4_Movbolita_loopAnidado_aros";
 import sketch10 from "./scripts/CC1/Ejemplos/CC1_ejemplo2.5._Bolita_vectores_Muchos";
 
 // import sketch from "./scripts/CC1/script/CC_taller1_Basicos";
