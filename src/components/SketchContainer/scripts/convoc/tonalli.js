@@ -1,8 +1,6 @@
-import * as p5 from "p5";
-window.p5 = p5;
-// import "libraries/p5.sound";
-// import  mySong from "./assets/nena.mp3";
-// console.log(mySong);
+import "../globals";
+import "p5/lib/addons/p5.sound";
+import mySong from "./assets/nena.mp3";
 
 export default function sketch(p5) {
   let color1, color2, aumento, aumento1, r, b, g, m;
@@ -15,12 +13,13 @@ export default function sketch(p5) {
 
   p5.preload = () => {
     console.log("PRECARGANDO");
-    // song = p5.loadSound("./assets/nena.mp3");
+    song = p5.loadSound(mySong);
     console.log(song);
   };
 
   p5.setup = () => {
-    p5.createCanvas(800, 800);
+    let cnv = p5.createCanvas(800, 800);
+    cnv.mousePressed(presionarCanvas);
     slider = p5.createSlider(0, 1, 0.5, 0.01);
     slider.style("display", "grid");
     color1 = p5.color(200, 10, 210);
@@ -39,13 +38,15 @@ export default function sketch(p5) {
     d = 200;
   };
 
-  p5.mousePressed = () => {
-    console.log("Activando cancion");
-  };
+  function presionarCanvas() {
+    if (song.isPlaying()) song.stop();
+    else song.play();
+    console.log(song.isPlaying());
+  }
 
   p5.draw = () => {
     p5.background(color1);
-    // song.setVolume(slider.value());
+    song.setVolume(slider.value());
     p5.fill(color2);
     p5.noStroke();
     p5.rect(0, 600, 800, 200);

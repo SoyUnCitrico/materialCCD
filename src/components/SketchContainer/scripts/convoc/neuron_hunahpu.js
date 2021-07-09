@@ -1,61 +1,60 @@
 /*eslint-disable*/
+import "../globals";
+import "p5/lib/addons/p5.sound";
+import * as p5 from "p5";
+import mySong from "./assets/test.mp3";
 import miFuente from "./assets/FiraCode-Regular.ttf";
+
 export default function sketch(p5) {
+  let neurons = [];
+  let connexions = [];
+  let pot = 7;
+  let M = Math.pow(2, pot);
+  // let n = Math.pow(2, pot);
+  let dM = 150;
+  let r = 20;
+  let r2 = 10;
+  let k = 3;
+  let song;
+  // let onda;
+  // let fft;
+  // let spectrum;
+  let myFont;
+  let start = false;
 
-
-let neurons, connexions;
-let pot = 7
-let M = Math.pow(2, pot)
-let n = Math.pow(2, pot)
-let dM = 150
-let r = 20
-let r2 = 10
-let k = 3
-let song
-let onda;
-let fft;
-let spectrum;
-let myFont
-let start = false
-
-p5.preload = () => {
-  // song = loadSound("../assets/audio/temyst.mp3");
-  myFont = p5.loadFont(miFuente, () =>{
-    console.log("fuente cargada")
-  });
-}
-
-
-p5.setup = () => {
-  p5.createCanvas(800, 800, p5.WEBGL);
-  p5.colorMode(p5.HSB, 360, 100, 100)
-  // fft = new p5.FFT()
-  p5.background(11, 11, 11);
-  p5.textAlign(p5.CENTER, p5.CENTER);
-  p5.textSize(200);
-  p5.textFont(myFont)
-  p5.text("click para iniciar", 0, 0);
-
-}
-
-function init() {
-  // p5.background(11, 11, 11);
-
-  neurons = []
-  connexions = []
-
-  for (let i = 0; i < M; i++) {
-    neurons.push(new Neuron(i))
+  p5.preload = () => {
+    song = p5.loadSound(mySong, () => {
+      console.log("Audio cargado");
+    });
+    myFont = p5.loadFont(miFuente, () => {
+      console.log("fuente cargada");
+    });
   }
 
-  for (let neuron of neurons)
-    neuron.find_nh()
+  p5.setup = () => {
+    p5.createCanvas(800, 800, p5.WEBGL);
+    p5.colorMode(p5.HSB, 360, 100, 100);
+    // fft = new p5.FFT();
+    p5.background(11, 11, 11);
+    p5.textAlign(p5.CENTER, p5.CENTER);
+    p5.textSize(200);
+    p5.textFont(myFont);
+    p5.text("click para iniciar", 0, 0);
+  }
 
-}
+  function init() {
+    // p5.background(11, 11, 11);
+    for (let i = 0; i < M; i++) {
+      neurons.push(new Neuron(i))
+    }
+    for (let neuron of neurons)
+      neuron.find_nh()
 
-function d(x, y, a, z, w, b) {
-  return Math.sqrt((x - z) * (x - z) + (y - w) * (y - w) + (a - b) * (a - b))
-}
+  }
+
+  function d(x, y, a, z, w, b) {
+    return Math.sqrt((x - z) * (x - z) + (y - w) * (y - w) + (a - b) * (a - b))
+  }
 
 let a = 0
 let b = 0
@@ -105,19 +104,17 @@ p5.draw = () => {
 p5.mousePressed = () => {
   init()
   p5.loop()
-  // song.stop()
-  // song.play(0.01)
+  toggleSong();
   start=true
 }
 
 p5.keyPressed = () => {
-  // toggleSong()
+  if (p5.key == "p") toggleSong();
 }
 
-// function toggleSong() {
-  // let status = song.isPlaying();
-  // song.isPlaying() == true ? song.pause() : song.play();
-// }
+function toggleSong() {
+  song.isPlaying() == true ? song.stop() : song.play(0.2);
+}
 
 
 class Neuron {

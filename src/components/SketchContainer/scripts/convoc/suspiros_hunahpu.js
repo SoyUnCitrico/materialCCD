@@ -1,8 +1,8 @@
 /*eslint-disable*/
-// import * as p5 from "p5";
-// window.p5 = p5;
-// import "../libraries/p5.sound";
-// import song from "../../assets/audio/nena.mp3";
+// import "../globals";
+// import "p5/lib/addons/p5.sound";
+// import mySong from "./assets/nena.mp3";
+
 function Sketch (p5){
   let nSpaces = 30
   let spaces = []
@@ -15,7 +15,6 @@ function Sketch (p5){
 
   p5.setup = () => {
     p5.createCanvas(800, 800);
-    // p5.createCanvas(800, 800).parent('main-gallery__sketch--container');
     p5.background(11, 11, 11);
   }
 
