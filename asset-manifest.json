@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/materialCCD/static/css/main.d781a375.chunk.css",
-    "main.js": "/materialCCD/static/js/main.fb872ac4.chunk.js",
-    "main.js.map": "/materialCCD/static/js/main.fb872ac4.chunk.js.map",
+    "main.js": "/materialCCD/static/js/main.a815167d.chunk.js",
+    "main.js.map": "/materialCCD/static/js/main.a815167d.chunk.js.map",
     "runtime-main.js": "/materialCCD/static/js/runtime-main.9daed3f8.js",
     "runtime-main.js.map": "/materialCCD/static/js/runtime-main.9daed3f8.js.map",
-    "static/js/2.b98cafbc.chunk.js": "/materialCCD/static/js/2.b98cafbc.chunk.js",
-    "static/js/2.b98cafbc.chunk.js.map": "/materialCCD/static/js/2.b98cafbc.chunk.js.map",
+    "static/js/2.2af0a44e.chunk.js": "/materialCCD/static/js/2.2af0a44e.chunk.js",
+    "static/js/2.2af0a44e.chunk.js.map": "/materialCCD/static/js/2.2af0a44e.chunk.js.map",
     "index.html": "/materialCCD/index.html",
     "static/css/main.d781a375.chunk.css.map": "/materialCCD/static/css/main.d781a375.chunk.css.map",
-    "static/js/2.b98cafbc.chunk.js.LICENSE.txt": "/materialCCD/static/js/2.b98cafbc.chunk.js.LICENSE.txt",
+    "static/js/2.2af0a44e.chunk.js.LICENSE.txt": "/materialCCD/static/js/2.2af0a44e.chunk.js.LICENSE.txt",
     "static/media/FiraCode-Regular.1addc841.ttf": "/materialCCD/static/media/FiraCode-Regular.1addc841.ttf",
     "static/media/LEMONMILK-Bold.ac2b6389.otf": "/materialCCD/static/media/LEMONMILK-Bold.ac2b6389.otf",
     "static/media/audio2.1170ea66.png": "/materialCCD/static/media/audio2.1170ea66.png",
@@ -20,12 +20,14 @@
     "static/media/intro2.4cb96c1c.png": "/materialCCD/static/media/intro2.4cb96c1c.png",
     "static/media/mensajesSonoros_00.ff5b1af3.jpg": "/materialCCD/static/media/mensajesSonoros_00.ff5b1af3.jpg",
     "static/media/mensajesSonoros_02.2e7ac96c.jpg": "/materialCCD/static/media/mensajesSonoros_02.2e7ac96c.jpg",
-    "static/media/talleres_01.0cd79499.JPG": "/materialCCD/static/media/talleres_01.0cd79499.JPG"
+    "static/media/nena.f4d619ef.mp3": "/materialCCD/static/media/nena.f4d619ef.mp3",
+    "static/media/talleres_01.0cd79499.JPG": "/materialCCD/static/media/talleres_01.0cd79499.JPG",
+    "static/media/test.e3b76631.mp3": "/materialCCD/static/media/test.e3b76631.mp3"
   },
   "entrypoints": [
     "static/js/runtime-main.9daed3f8.js",
-    "static/js/2.b98cafbc.chunk.js",
+    "static/js/2.2af0a44e.chunk.js",
     "static/css/main.d781a375.chunk.css",
-    "static/js/main.fb872ac4.chunk.js"
+    "static/js/main.a815167d.chunk.js"
   ]
 }
