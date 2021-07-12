@@ -1,52 +1,110 @@
 /*eslint-disable*/
 import "../globals";
 import "p5/lib/addons/p5.sound";
-import * as p5 from "p5";
 import mySong from "./assets/test.mp3";
 import miFuente from "./assets/FiraCode-Regular.ttf";
 
 export default function sketch(p5) {
   let neurons = [];
-  let connexions = [];
-  let pot = 7;
-  let M = Math.pow(2, pot);
-  // let n = Math.pow(2, pot);
-  let dM = 150;
-  let r = 20;
-  let r2 = 10;
-  let k = 3;
-  let song;
-  // let onda;
-  // let fft;
-  // let spectrum;
-  let myFont;
-  let start = false;
+  let connections = [];
+  let pot = 7
+  let M = Math.pow(2, pot)
+  let n = Math.pow(2, pot)
+  let dM = 150
+  let r = 20
+  let r2 = 10
+  let k = 3
+  let a = 0
+  let b = 0
+  let song
+  let onda;
+  let fft;
+  let spectrum;
+  let myFont
+  let start = false
 
   p5.preload = () => {
-    song = p5.loadSound(mySong, () => {
-      console.log("Audio cargado");
-    });
-    myFont = p5.loadFont(miFuente, () => {
-      console.log("fuente cargada");
-    });
+    song = p5.loadSound(mySong);
+    myFont = p5.loadFont(miFuente);
   }
 
+
   p5.setup = () => {
-    p5.createCanvas(800, 800, p5.WEBGL);
-    p5.colorMode(p5.HSB, 360, 100, 100);
-    // fft = new p5.FFT();
+    p5.createCanvas(800, 800, p5.WEBGL).mousePressed(whenMousePressed);
+    p5.colorMode(p5.HSB, 360, 100, 100)
+    fft = new p5.constructor.FFT()
     p5.background(11, 11, 11);
     p5.textAlign(p5.CENTER, p5.CENTER);
     p5.textSize(200);
-    p5.textFont(myFont);
+    p5.textFont(myFont)
     p5.text("click para iniciar", 0, 0);
   }
 
-  function init() {
-    // p5.background(11, 11, 11);
-    for (let i = 0; i < M; i++) {
-      neurons.push(new Neuron(i))
+  p5.draw = () => {
+    p5.background(0, 0, 0, 30);
+    if (start) {
+      p5.camera(0, 0, p5.width * 1.5, 0, 0, 0, 0, 1, 0);
+      p5.rotateX(+b)
+      p5.rotateY(+a)
+      spectrum = fft.analyze();
+      onda = fft.waveform(n)
+      for (let neuron of neurons) {
+        neuron.draw_connections()
+      }
+
+      for (let neuron of neurons) {
+        neuron.glow()
+      }
+
+      let c = 0
+      for (let neuron of neurons) {
+        let R = spectrum[neuron.id] / 255
+        for (let v of neuron.connections) {
+          R += spectrum[v] * onda[v] / 100
+        }
+        if (p5.abs(R) > 0.43) {
+          neuron.active = true
+        }
+        neuron.draw(r + 2 * (r * R / 5))
+
+      }
+      a += 0.01
+      b += 0.009
+    } else {
+      p5.textAlign(p5.CENTER, p5.CENTER);
+      p5.textSize(50);
+      p5.textFont(myFont)
+      p5.text("click para iniciar", 0, 0);
     }
+  }
+
+  p5.keyPressed = () => {
+    toggleSong()
+  }
+
+  function toggleSong() {
+    let status = song.isPlaying();
+    song.isPlaying() == true ? song.pause() : song.play();
+  }
+
+  function whenMousePressed() {
+    init();
+    p5.loop();
+    song.stop();
+    song.play(0.01);
+    start=true;
+  }
+
+  function init() {
+    p5.background(11, 11, 11);
+
+    neurons = []
+    connections = []
+
+    for (let i = 0; i < M; i++) {
+      neurons.push(new Neuron(i,r))
+    }
+
     for (let neuron of neurons)
       neuron.find_nh()
 
@@ -56,69 +114,8 @@ export default function sketch(p5) {
     return Math.sqrt((x - z) * (x - z) + (y - w) * (y - w) + (a - b) * (a - b))
   }
 
-let a = 0
-let b = 0
-//let t = 0
-
-
-p5.draw = () => {
-  p5.background(0, 0, 0, 30);
-  if (start) {
-    p5.camera(0, 0, p5.width * 1.5, 0, 0, 0, 0, 1, 0);
-    p5.rotateX(+b)
-    p5.rotateY(+a)
-    // spectrum = fft.analyze();
-    // onda = fft.waveform(n)
-    for (let neuron of neurons) {
-      neuron.draw_connections()
-    }
-
-    for (let neuron of neurons) {
-      neuron.glow()
-    }
-
-    // let c = 0
-    for (let neuron of neurons) {
-      // console.log(neuron)
-      let R = 8/255;
-      // let R = spectrum[neuron.id] / 255
-      // for (let v of neuron.connexions) {
-        // R += spectrum[v] * onda[v] / 100
-      // }
-      if (p5.abs(R) > 0.43) {
-        neuron.active = true
-      }
-      neuron.draw(r + 2 * (r * R / 5))
-
-    }
-    a += 0.01
-    b += 0.009
-  } else {
-    p5.textAlign(p5.CENTER, p5.CENTER);
-    p5.textSize(50);
-    p5.textFont(myFont)
-    p5.text("click para iniciar", 0, 0);
-  }
-}
-
-p5.mousePressed = () => {
-  init()
-  p5.loop()
-  toggleSong();
-  start=true
-}
-
-p5.keyPressed = () => {
-  if (p5.key == "p") toggleSong();
-}
-
-function toggleSong() {
-  song.isPlaying() == true ? song.stop() : song.play(0.2);
-}
-
-
-class Neuron {
-    constructor(id) {
+  class Neuron {
+    constructor(id,r) {
       let px
       let py
       let pz
@@ -185,7 +182,7 @@ class Neuron {
       }
       
     }
-    draw(r){
+    draw(r) {
       p5.push()
       p5.translate(this.x, this.y,this.z)
       p5.rotateY(-a)
@@ -211,3 +208,5 @@ class Neuron {
     
   }
 }
+
+

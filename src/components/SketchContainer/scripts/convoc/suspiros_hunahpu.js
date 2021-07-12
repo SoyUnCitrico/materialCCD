@@ -1,6 +1,6 @@
 /*eslint-disable*/
-// import "../globals";
-// import "p5/lib/addons/p5.sound";
+import "../globals";
+import "p5/lib/addons/p5.sound";
 // import mySong from "./assets/nena.mp3";
 
 function Sketch (p5){
@@ -14,7 +14,7 @@ function Sketch (p5){
   let start = false
 
   p5.setup = () => {
-    p5.createCanvas(800, 800);
+    p5.createCanvas(800, 800).mousePressed(init);
     p5.background(11, 11, 11);
   }
 
@@ -40,9 +40,9 @@ function Sketch (p5){
     }
   }
 
-  p5.mousePressed = () => {
-    init()
-  }
+  // p5.mousePressed = () => {
+  //   init()
+  // }
 
   function init() {
     walkers = []
@@ -65,19 +65,19 @@ function Sketch (p5){
 
   class Space {
     constructor(mx) {
-      this.r = p5.int(p5.random(20, 100))
-      this.x = p5.random(this.r, p5.width - this.r)
-      this.y = p5.random(this.r, p5.height - this.r)
-      this.inside = false
-      // this.voice = new p5.Oscillator()
-      // this.voice1 = new p5.Oscillator(types[int(random(4))])
-      // this.voice.start()
-      // this.voice.freq(int(random(1, mx)) * 50)
-      // this.voice1.freq(int(random(1, mx)) * 49.99999999)
-      // this.voice1.start()
+      this.r = p5.int(p5.random(20, 100));
+      this.x = p5.random(this.r, p5.width - this.r);
+      this.y = p5.random(this.r, p5.height - this.r);
+      this.inside = false;
+      this.voice = new p5.constructor.Oscillator();
+      this.voice1 = new p5.constructor.Oscillator(types[p5.int(p5.random(4))]);
+      this.voice.start();
+      this.voice.freq(p5.int(p5.random(1, mx)) * 50)
+      this.voice1.freq(p5.int(p5.random(1, mx)) * 49.99999999)
+      this.voice1.start()
 
-      // this.voice.amp(0)
-      // this.voice1.amp(0)
+      this.voice.amp(0)
+      this.voice1.amp(0)
       this.amp = p5.random()
       this.insiders = 0
       this.dr = p5.random(0.1, 0.6)
@@ -123,12 +123,12 @@ function Sketch (p5){
       if (count != this.insiders) {
         if (this.insiders == 0) {
           this.inside = true
-          // this.voice.amp(this.amp, 0.2)
-          // this.voice1.amp(this.amp, 0.2)
+          this.voice.amp(this.amp, 0.2)
+          this.voice1.amp(this.amp, 0.2)
         } else if (count == 0) {
           this.inside = false
-          // this.voice.amp(0, t)
-          // this.voice1.amp(0, t)
+          this.voice.amp(0, t)
+          this.voice1.amp(0, t)
         }
       }
       if (count > 0)
@@ -138,7 +138,7 @@ function Sketch (p5){
 
       }
       this.insiders = count
-      //if(inside)
+      // if(inside)
     }
 
     ins(x, y, r) {
@@ -160,7 +160,7 @@ function Sketch (p5){
     }
     close() {
       p5.print('bye')
-      // this.voice.stop(0.1)
+      this.voice.stop(0.1)
     }
   }
 
@@ -203,7 +203,7 @@ function Sketch (p5){
       p5.push()
       p5.noStroke()
       p5.fill(132, 151, 196)
-      //fill(255)
+      // fill(255)
       p5.ellipse(this.x, this.y, this.r * 2, this.r * 2)
       p5.pop()
     }
