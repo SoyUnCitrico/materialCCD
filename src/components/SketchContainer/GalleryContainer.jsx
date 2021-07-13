@@ -22,7 +22,8 @@ import sketch from "./scripts/convoc/tonalli.js";
 import sketch2 from "./scripts/convoc/suspiros_hunahpu";
 import sketch3 from "./scripts/convoc/neuron_hunahpu";
 import sketch4 from "./scripts/convoc/fugitiva96";
-
+import "./scripts/globals";
+import "p5/lib/addons/p5.sound";
 
 const GalleryContainer = (props) => {
   const { title, color, gallery } = props;
@@ -156,19 +157,21 @@ const GalleryContainer = (props) => {
     let pages = []
     let newPage;
     let arrow = {text: "PREV", onClick: (()=>{
-        if((actualPage <= 1))
-        setPage(page=>page=gallery.length);
-        else
-          setPage(page-1);
+        if((actualPage <= 1)) setPage(page=>page=gallery.length);
+        else setPage(page-1);
+        // console.log(p5.getAudioContext().state);
       }
     )};
     pages.push(arrow);
     for(let i = 0; i<gallery.length; i++) {
         if(page == i+1)
-          newPage = {active: true, text: (i+1), onClick: (() => {})};
+          newPage = {active: true, text: (i+1), onClick: (() => {
+            // console.log(getAudioContext());
+          })};
         else
           newPage = {active: false, text: (i+1), onClick: (() => {
             setPage(page=>page=i+1);
+            // console.log(getAudioContext());
           }
         )}
         console.log("To page: ", page);
@@ -176,10 +179,9 @@ const GalleryContainer = (props) => {
       }
     arrow = { text: "SIG", onClick: (() => {
       
-      if(actualPage >= gallery.length)
-        setPage(page=>page=1);
-      else
-        setPage(page+1);
+      if(actualPage >= gallery.length) setPage(page=>page=1);
+      else setPage(page+1);
+      // console.log(getAudioContext().state);
       }
     )};
     pages.push(arrow);

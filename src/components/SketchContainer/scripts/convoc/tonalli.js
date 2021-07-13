@@ -36,6 +36,13 @@ export default function sketch(p5) {
     a = 220;
     c = 250;
     d = 200;
+    if (p5.getAudioContext().state !== "running") {
+      p5.getAudioContext().resume();
+    } else {
+      p5.getAudioContext().suspend();
+      p5.getAudioContext().resume();
+      // console.log(s.getAudioContext());
+    }
   };
 
   function presionarCanvas() {

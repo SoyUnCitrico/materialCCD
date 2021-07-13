@@ -19,6 +19,13 @@ export default function sketch2(s) {
     s.background(138,161,191);
     player = new PlayerWave(400, 100, myRadius);
     plotter = new PolarPlotter(0,0);
+    if (s.getAudioContext().state !== 'running') {
+      s.getAudioContext().resume();
+    } else {
+      s.getAudioContext().suspend();
+      s.getAudioContext().resume();
+      // console.log(s.getAudioContext());
+    }
   }
     
   s.draw = function() { 
@@ -56,7 +63,7 @@ export default function sketch2(s) {
       this.botonRandom = s.createButton('Random').mousePressed(this.aleatorio).position(700,250);
       this.sliderVol = s.createSlider(0, 0.7, 0.25, 0.001).position(580,300);
       this.sliderRate = s.createSlider(0, 2, 1, 0.001).position(580,340);
-      this.sliderPan = s.createSlider(0, 1.5, 1, 0.01).position(580,380);
+      this.sliderPan = s.createSlider(-1, 1, 0, 0.01).position(580,380);
       
       this.bandas = 1024;
       this.transformada = new s.constructor.FFT(.8,this.bandas);

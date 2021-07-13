@@ -16,6 +16,13 @@ function Sketch (p5){
   p5.setup = () => {
     p5.createCanvas(800, 800).mousePressed(init);
     p5.background(11, 11, 11);
+    if (p5.getAudioContext().state !== 'running') {
+      p5.getAudioContext().resume();
+    } else {
+      p5.getAudioContext().suspend();
+      p5.getAudioContext().resume();
+      // console.log(s.getAudioContext());
+    }
   }
 
 

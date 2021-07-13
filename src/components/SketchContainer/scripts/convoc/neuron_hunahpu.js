@@ -38,6 +38,14 @@ export default function sketch(p5) {
     p5.textSize(200);
     p5.textFont(myFont)
     p5.text("click para iniciar", 0, 0);
+    if (p5.getAudioContext().state !== 'running') {
+      p5.getAudioContext().resume();
+    } else {
+      p5.getAudioContext().suspend();
+      p5.getAudioContext().resume();
+      // console.log(s.getAudioContext());
+    }
+    
   }
 
   p5.draw = () => {
