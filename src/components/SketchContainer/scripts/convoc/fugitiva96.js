@@ -1,235 +1,207 @@
 /*eslint-disable*/
-export default function sketch2(s){
-    let Canvas1;
-    let Canvas2;
-    s.sonido;
-    s.transformada;
-    s.botonPlay;
-    s.botonStop;
-    s.botonRandom;
-    s.sliderVol; 
-    s.sliderRate;
-    s.onda; 
-    s.amplitud;
-    s.espectro;
-    s.posInicialY;
-    s.bandas;
-      
-    s.preload = function(){  
-      // s.sonido = s.loadSound('../assets/audio/radius1.mp3');
-      s.print('El sonido ha sido cargado');    
-    }
-      
-    s.setup = function(){
-      Canvas1 = s.createCanvas(350, 100);
-      Canvas1.position(450,260);
-      
-      
-      // rectMode(CENTER);
-      //Creacion de elementos del DOM
-      s.botonPlay = s.createButton('Play / Pause');
-      s.botonPlay.mousePressed(s.toggle);
-      //Posición del botón Play / Pause
-      s.botonPlay.position(500,420);
-      s.botonStop = s.createButton('Stop');
-      s.botonStop.mousePressed(s.alto);
-      s.botonRandom = s.createButton('Random');
-      s.botonRandom.mousePressed(s.aleatorio);
-      // Posición del botón Stop
-      s.botonStop.position(600,420);
-      // Posición del botón Random
-      s.botonRandom.position(540,390);
-      s.sliderVol = s.createSlider(0,1,0.5,0.001)
-      // Posición del slider de volumen
-      s.sliderVol.position(70,500);
-      s.sliderRate = s.createSlider(0,2,1,0.001)
-      //Posición del slider modificador de onda
-      s.sliderRate.position(70,540);
-      s.bandas = 1024;
-      // s.transformada = new p5.FFT(.8,s.bandas);
-      // s.amplitud = new p5.Amplitude();
-      
-      s.posInicialY = s.height/2;
-        
-      }
+import "../globals";
+import "p5/lib/addons/p5.sound";
+import myRadius from "./assets/radius1.mp3";
+
+export default function sketch2(s) {
+  let sonido;
+  let player;
+  let plotter;
+  
+  s.preload = () => {
+    sonido = s.loadSound(myRadius,()=>{
+      console.log("Canción cargada");
+    });
+  }
+  
+  s.setup = function() {
+    s.createCanvas(800,450);
+    s.background(138,161,191);
+    player = new PlayerWave(400, 100, myRadius);
+    plotter = new PolarPlotter(0,0);
+  }
     
-    s.draw = function(){
+  s.draw = function() { 
+    s.background(138,161,191);
+    player.drawPlayer();
+    plotter.draw();
+  }
+  
+  class PlayerWave{
+    constructor(x,y) {
+      this.pos = s.createVector(x,y);
+      this.size = s.createVector(350,100);
+      this.finalPlot = p5.Vector.add(this.size, this.pos);
+      this.isLog = true;
+      this.transformada;
+      this.botonPlay;
+      this.botonStop;
+      this.botonRandom;
+      this.sliderVol; 
+      this.sliderRate;
+      this.sliderPan;
+      this.onda; 
+      this.amplitud;
+      this.espectro;
+      this.posInicialY;
+      this.bandas;
+      this.init();
+    }
+
+    init() {
+      console.log("iniciando");
+      console.log(sonido);
+      this.botonPlay = s.createButton('Play / Pause').mousePressed(this.toggle).position(500,250);
+      this.botonStop = s.createButton('Stop').mousePressed(this.alto).position(620,250);
+      this.botonRandom = s.createButton('Random').mousePressed(this.aleatorio).position(700,250);
+      this.sliderVol = s.createSlider(0, 0.7, 0.25, 0.001).position(580,300);
+      this.sliderRate = s.createSlider(0, 2, 1, 0.001).position(580,340);
+      this.sliderPan = s.createSlider(0, 1.5, 1, 0.01).position(580,380);
       
-      s.background(88, 70, 187 );
-      // s.sonido.amp(s.sliderVol.value());
-      // s.sonido.rate(s.sliderRate.value());
-      // Dibuja un cuadrado en el centro del canvas
-     
-      
+      this.bandas = 1024;
+      this.transformada = new s.constructor.FFT(.8,this.bandas);
+      this.amplitud = new s.constructor.Amplitude();
+      this.posInicialY = this.size.y - this.pos.y / 2;
+    }
+
+    drawBack(){
+      s.push();
+      s.noStroke()
+      s.fill(88, 70, 187) 
+      s.rect(this.pos.x,this.pos.y, this.size.x, this.size.y);
+      s.pop();
+    }
+
+    drawPlayer() {
+      this.drawBack();
+      sonido.amp(this.sliderVol.value());
+      sonido.rate(this.sliderRate.value());
+      sonido.pan(this.sliderPan.value())
       // Dibuja la forma de onda con una linea
-      // s.onda = s.transformada.waveform();
-      s.stroke(244, 247, 149 );
+      s.push();
+      this.onda = this.transformada.waveform();
+      s.stroke(244, 247, 149);
       s.noFill();
       s.beginShape();
-      // for(s.i = 2; s.i < s.onda.length; s.i++) {
-      //   s.x = s.map(s.i,0,s.onda.length,0,s.width);
-      //   // s.y = s.map(s.onda[s.i],-1,1,-s.height,s.height)
-      //   s.y += s.posInicialY;
-      //   s.curveVertex(s.x,s.y);
-      //   // point(x,y)
-      // }
+      for(let i = 2; i < this.onda.length; i++) {
+        let x = s.map(i, 0, this.onda.length, this.pos.x, this.pos.x + this.size.x);
+        let y = s.map(this.onda[i], -1, 1, -s.height, s.height)
+        y += this.posInicialY + this.pos.y;
+        s.curveVertex(x, y);
+      }
       s.endShape();
       s.pop();
       
-      
       // Dibuja el espectro de frecuencias del sonido
-      s.push()
-      s.noStroke()
-      s.fill(149, 247, 184 );
-      s.w = s.width / 24;
-      s.h = s.height/2
-      // s.espectro = s.transformada.analyze() 
-      // for(s.i = 0; s.i < s.espectro.length; s.i++) {
-      //   s.amp = s.espectro[s.i];
-      //   s.y = s.map(s.amp,0,255,0,-s.h) 
-      //   s.rect(s.i*s.w,s.height,s.w-2,s.y)
-      //   // point(x,y) 
-      // }
-      s.pop();
-      
+      this.plotFFT();
     }
-    
-    s.toggle = function(){
-      //   if(s.sonido.isPlaying()) {
-      //   s.sonido.pause();
-      //   s.print('Pausa')
-      // } else {
-      //   s.sonido.play();
-      //   s.print('Play')
-      // }      
-    }
-      
-    s.alto = function(){   
-      s.sonido.stop();
-    }
-      
-    s.aleatorio = function(){
-      // s.duracion = s.sonido.duration();
-      // s.t = s.random(s.duracion);
-      // s.sonido.jump(s.t);      
-      s.print(s.onda);
-    }
-  }   
 
-  // export default function sketch1(w) {
-  //   let Canvas2;
-  //   w.song;
-    
-  //   w.sliderRate;
-  //   w.sliderPan;
-  //   w.sliderAlpha;
-    
-  //   w.stopButton;
-    
-  //   w.onda;
-  //   w.fft;
-  //   w.amp;
-    
-  //   w.value = 0
-  //   w.op = w.false
+    plotFFT() {
+      this.espectro = this.transformada.analyze(1024);
+      let long = this.espectro.length / 24;
+      s.noStroke();
+      for (let i = 0; i< this.espectro.length; i++){
+      // let c = map(i,0, spectrum.length, 0,255)
+      s.fill(149, 247, 184);
+  
+      if(this.isLog) {
+          let a = s.map(s.log(i), 0, s.log(this.espectro.length), this.pos.x, this.finalPlot.x) 
+          let b = s.map(this.espectro[i], 0, 255, 0, this.size.y)
+          s.rect(a, this.finalPlot.y, (this.size.x / long) -2, -b)
+          // fill(textColor);
+          // text('LOG',width*3/4,50);
+  
+      } else {
+          let a = s.map(i, 0, this.espectro.length, this.pos.x, this.finalPlot.x);
+          let b = s.map(this.espectro[i], 0, 255, 0, this.size.y);
+          s.rect(a, this.finalPlot.y, (this.size.x / long) -2, -b )
+          // fill(textColor);
+          // text('LIN',width*3/4,50);
+          } 
+      }
+    } 
+
+    alto() {   
+      sonido.stop();
+    }
+
+    toggle() {
+      if(sonido.isPlaying()) {
+        sonido.pause();
+        // s.print('Pausa')
+      } else {
+        sonido.play();
+        // s.print('Play')
+      }      
+    }
+
+    aleatorio() {
+      let duracion = sonido.duration();
+      let t = s.random(duracion);
+      sonido.jump(t);
+    }
+  }
+
+  class PolarPlotter{
+    constructor(x,y) {
+      this.pos = s.createVector(x,y);
+      this.size = s.createVector(350,350);
+      this.finalPos = p5.Vector.add(this.pos,this.size);
+      this.sliderAlpha = s.createSlider(0, 100, 90, 0.1).position(150,400);
+      this.fft = new s.constructor.FFT();
       
-  //   w.preload = function() {
-        
-  //       // w.song = w.loadSound("../assets/audio/radius1.mp3");
-        
-  //   }
-       
-  //   w.setup = function(){
-  //     Canvas2=w.createCanvas(350,350);
-  //     Canvas2.position(50,150)
-        
-  //     //song.play()
-  //     // w.fft = new p5.FFT()
-  //     // w.amp = new p5.Amplitude()
-  //     // w.song.setVolume(0.1)
+      this.amp;
+      this.value = 0;
+      this.op = false;
+    }
     
-  //     w.sliderRate = w.createSlider(0, 1.5, 1, 0.01)
-  //     //Posición slider rate
-  //     w.sliderRate.position(500,520)
-  //     w.sliderPan = w.createSlider(-1, 1, 0, 0.01)
-  //     //Posición slider Pan
-  //     w.sliderPan.position(500,450)
-  //     w.sliderAlpha = w.createSlider(0, 100, 90, 0.1)
-  //     // Posición slider Alpha
-  //     w.sliderAlpha.position(500,500)
+    draw() {
+      // s.noStroke();    
+      if (this.op) {
+        s.fill(1, 22, 39);
+      } else {
+        s.fill(1, 22, 39, this.sliderAlpha.value());
+      }
+  
+      s.rect(this.pos.x, this.pos.y, this.finalPos.x, this.finalPos.y);
+      s.translate(this.size.x/2,this.size.y/2);
+      let onda = this.fft.waveform();
+      let n = onda.length;
+      let r0 = 50;
     
-  //     // w.stopButton = w.createButton("Stop")
-  //     // w.stopButton.mousePressed(w.toggleSong)
+      s.push()
+      s.blendMode(s.ADD)
+      for (let i = 0; i < n; i++) {
+        let theta = 1 * s.TAU / n * i ;
+        let r = r0 //+ i/n*200
+        let R = s.map(onda[i], -1, 1, -r0, r0) * 5;
+        let x = 1*(R + r) * s.cos(theta) + (R + r) * s.cos(20 * theta)
+        let y = 1*(R + r) * s.sin(theta) - (R + r) * s.sin(20 * theta)
+        s.push()
+        if (i % 3 == 0) {
+          s.stroke(177, 77, 197 )
+        } else {
+          if (i % 3 == 1) {
+            s.stroke(77, 197, 144 )
+          } else {
+            s.stroke(177, 77, 197 );
+          }
+        }
+        s.strokeWeight(3)
+        s.point(x, y);
+        s.pop()
+      }
+      s.pop()
+    }
     
-  //     w.noStroke()    
-  //     } 
-    
-  //     w.draw = function()
-  //     {
-  //       if (w.op) {
-  //       w.fill(1, 22, 39)
-  //     } else {
-  //       w.fill(1, 22, 39, w.sliderAlpha.value())
-  //     }
-    
-  //     w.rect(0, 0, w.width, w.height)
-  //     w.translate(w.width / 2, w.height / 2)
-  //     // w.song.rate(w.sliderRate.value())
-  //     // w.song.pan(w.sliderPan.value())
-    
-  //     // w.onda = w.fft.waveform();
-    
-  //     // w.n = w.onda.length
-  //     w.r0 = 100;
-    
-  //     w.push()
-  //     w.blendMode(w.ADD)
-  //     for (w.i = 0; w.i < w.n; w.i++) {
-  //       w.theta = 1 * w.TAU / w.n * w.i ;
-  //       // w.alpha = 1 * w.PI / w.n * w.i
-  //       w.r = w.r0 //+ i/n*200
-  //       w.R = w.map(w.onda[w.i], -1, 1, -w.r0, w.r0) * 5;
-        
-  //       // w.k = (w.r / w.R)
-  //       w.x = 1*(w.R+w.r)*w.cos(w.theta) + (w.R+w.r)*w.cos(20*w.theta)
-  //       w.y = 1*(w.R+w.r)*w.sin(w.theta)-(w.R+w.r)*w.sin(20*w.theta)
-  //       w.push()
-  //       if (w.i % 3 == 0) {
-  //         w.stroke(177, 77, 197 )
-  //       } else {
-  //         if (w.i % 3 == 1) {
-  //           w.stroke(77, 197, 144 )
-  //         } else {
-  //           w.stroke(177, 77, 197 );
-  //         }
-  //       }
-  //       w.strokeWeight(3)
-  //       w.point(w.x, w.y);
-  //       w.pop()
-  //     }
-  //     w.pop()
-  //     }
-    
-  //   w.keyPressed = function(){
-  //       if (w.value === 0) {
-  //       w.value = 1;
-  //     } else {
-  //       w.value = 0;
-  //     }
-  //     w.op = !w.op
-  //   }
-    
-  //   w.jumpSong = function(){
-     
-  //     // w.len = w.song.duration()
-  //     // w.t = w.random(w.len)
-  //     // w.song.jump(w.t)
-      
-  //   }
-    
-  //   w.toggleSong = function(){
-      
-  //     // w.status = w.song.isPlaying();
-  //     // w.song.isPlaying() == w.true ? w.song.pause() : w.song.play();
-  //   }
-  //   }
+    keyPressed() {
+      if (this.value === 0) {
+          this.value = 1;
+      } else {
+        this.value = 0;
+      }
+      this.op = !this.op;
+    }
+  }
+
+}
