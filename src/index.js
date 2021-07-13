@@ -283,28 +283,116 @@ const initialState = {
   "audio": [
     {
       "id": 1,
-      "url": "./components/SketchContainer/scripts/CC1/script/CC_taller1_Basicos.js",
-      "name": "Comandos básicos",
-      "autor": "ccdtecno",
+      "url": "---",
+      "name": "Glitch cassette",
+      "autor": "Luis Tonalli Olvera Torres",
       "nav_contact": [
         {
         "title": "Instagram",
-        "url": "https://www.instagram.com/ccdtecno"
+        "url": "https://www.instagram.com/tonalli_o"
         },
         {
-        "title": "Github",
-        "url": "https://www.github.com/ccdtecno"
+        "title": "Spacehey ",
+        "url": "https://spacehey.com/profile?id=98737"
         }
       ],
-      "nav_instructions": "---",
+      "nav_instructions": "Para que comience el audio se debe subir o bajar el volumen con el controlador que se encuentra debajo de la animación",
       "nav_code": [
         {
-          "title": "Copia el código",
-          "url": "https://www.github.com/ccdtecno"
+          "title": "Prueba el código",
+          "url": "https://editor.p5js.org/lutonalli/sketches/pQeYdrOEN"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "url": "---",
+      "name": "Glitch cassette",
+      "autor": "Luis Tonalli Olvera Torres",
+      "nav_contact": [
+        {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/tonalli_o"
         },
         {
-          "title": "Edita el código",
-          "url": "https://editor.p5js.org/ccdtecno/sketches/ABTLxL-YC"
+        "title": "Spacehey ",
+        "url": "https://spacehey.com/profile?id=98737"
+        }
+      ],
+      "nav_instructions": "Para que comience el audio se debe subir o bajar el volumen con el controlador que se encuentra debajo de la animación",
+      "nav_code": [
+        {
+          "title": "Prueba el código",
+          "url": "https://editor.p5js.org/lutonalli/sketches/pQeYdrOEN"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "url": "---",
+      "name": "Glitch cassette",
+      "autor": "Luis Tonalli Olvera Torres",
+      "nav_contact": [
+        {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/tonalli_o"
+        },
+        {
+        "title": "Spacehey ",
+        "url": "https://spacehey.com/profile?id=98737"
+        }
+      ],
+      "nav_instructions": "Para que comience el audio se debe subir o bajar el volumen con el controlador que se encuentra debajo de la animación",
+      "nav_code": [
+        {
+          "title": "Prueba el código",
+          "url": "https://editor.p5js.org/lutonalli/sketches/pQeYdrOEN"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "url": "---",
+      "name": "Glitch cassette",
+      "autor": "Luis Tonalli Olvera Torres",
+      "nav_contact": [
+        {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/tonalli_o"
+        },
+        {
+        "title": "Spacehey ",
+        "url": "https://spacehey.com/profile?id=98737"
+        }
+      ],
+      "nav_instructions": "Para que comience el audio se debe subir o bajar el volumen con el controlador que se encuentra debajo de la animación",
+      "nav_code": [
+        {
+          "title": "Prueba el código",
+          "url": "https://editor.p5js.org/lutonalli/sketches/pQeYdrOEN"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "url": "---",
+      "name": "Glitch cassette",
+      "autor": "Luis Tonalli Olvera Torres",
+      "nav_contact": [
+        {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/tonalli_o"
+        },
+        {
+        "title": "Spacehey ",
+        "url": "https://spacehey.com/profile?id=98737"
+        }
+      ],
+      "nav_instructions": "Para que comience el audio se debe subir o bajar el volumen con el controlador que se encuentra debajo de la animación",
+      "nav_code": [
+        {
+          "title": "Prueba el código",
+          "url": "https://editor.p5js.org/lutonalli/sketches/pQeYdrOEN"
         }
       ]
     }
